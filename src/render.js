@@ -54,8 +54,12 @@ export function renderEvent(data, customRoot) {
       continue;
     }
     try {
+      // CMS outputs flat fields, while manual JSON might use 'props'.
+      // If s.props exists, use it. Otherwise use s itself (filtering 'type' isn't strictly necessary but cleaner).
+      const props = s.props ? s.props : s;
+
       // Pass props and also full data context
-      const node = fn(s.props || {}, data);
+      const node = fn(props, data);
       if (node) root.appendChild(node);
     } catch (e) {
       console.error(`Error rendering section ${s.type}:`, e);
