@@ -23,6 +23,14 @@
       "minHeight": 600,
       "type": "hero",
       "image": "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
+    },
+    {
+      "type": "carousel",
+      "height": 250,
+      "images": [
+        "/assets/uploads/whatsapp-image-2026-01-27-at-12.38.52-pm.jpeg",
+        "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
+      ]
     }
   ]
 }
