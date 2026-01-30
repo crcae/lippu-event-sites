@@ -12,5 +12,17 @@
     "muted": "#B5B5C0",
     "accent": "#7B32FF"
   },
-  "sections": []
+  "sections": [
+    {
+      "badge": "Registrate gratis",
+      "date": "13/03/2026 - 15/03/2026",
+      "kicker": "2026",
+      "location": "",
+      "subtitle": "Rancho el Descanso",
+      "title": "Inspección del Caballo Frisón en México por KFPS",
+      "minHeight": 400,
+      "type": "hero",
+      "image": "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
+    }
+  ]
 }
