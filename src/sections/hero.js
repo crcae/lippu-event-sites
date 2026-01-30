@@ -1,98 +1,131 @@
 export function renderHero(props) {
-  const container = document.createElement("div");
-  container.style.display = "flex";
-  container.style.flexDirection = "column";
-  container.style.justifyContent = "center"; // Center text vertically
-  container.style.padding = "40px 20px";
-  container.style.borderRadius = "18px";
-  container.style.border = "1px solid rgba(255,255,255,0.1)";
-  container.style.position = "relative";
-  container.style.overflow = "hidden"; // Clip background
+  // Container moves outside normal flow to be full width if possible, 
+  // but since #root has max-width, we might need to break out or just be big inside.
+  // For this design, we'll keep it inside but make it TALL and immersive.
 
-  // Minimum height config
-  const minH = props.minHeight || 400;
+  const container = document.createElement("div");
+  container.style.position = "relative";
+  container.style.width = "100%";
+  // Default to taller 80vh for "Monumental" feel, unless minHeight override
+  const minH = props.minHeight || window.innerHeight * 0.75;
   container.style.minHeight = `${minH}px`;
 
-  // Background Image
+  // Flex center for content
+  container.style.display = "flex";
+  container.style.flexDirection = "column";
+  container.style.alignItems = "center";
+  container.style.justifyContent = "center";
+  container.style.textAlign = "center";
+  container.style.padding = "40px 20px";
+
+  // Radius issues: if it's top of page, maybe we want no top radius?
+  // Let's stick to the "Card" vibe but BIG.
+  container.style.borderRadius = "32px";
+  container.style.overflow = "hidden"; // Clip the zoom image
+  container.style.isolation = "isolate"; // For z-indexing
+
+  // Background Image with Ken Burns Effect
   if (props.image) {
-    // Overlay for readability
+    const bgWrapper = document.createElement("div");
+    bgWrapper.style.position = "absolute";
+    bgWrapper.style.inset = "0";
+    bgWrapper.style.zIndex = "-2";
+    bgWrapper.style.overflow = "hidden"; // double safety
+
     const bg = document.createElement("div");
-    bg.style.position = "absolute";
-    bg.style.inset = "0";
+    bg.style.width = "100%";
+    bg.style.height = "100%";
     bg.style.backgroundImage = `url('${props.image}')`;
     bg.style.backgroundSize = "cover";
     bg.style.backgroundPosition = "center";
-    bg.style.zIndex = "0";
-    container.appendChild(bg);
+    bg.style.animation = "kenBurns 20s ease-out infinite alternate";
 
+    bgWrapper.appendChild(bg);
+    container.appendChild(bgWrapper);
+
+    // Gradient Overlay (Darker at bottom for text readability)
     const overlay = document.createElement("div");
     overlay.style.position = "absolute";
     overlay.style.inset = "0";
-    overlay.style.background = "linear-gradient(to top, #0B0B10 0%, rgba(11,11,16,0.4) 100%)";
-    overlay.style.zIndex = "1";
+    overlay.style.background = "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.9) 100%)";
+    overlay.style.zIndex = "-1";
     container.appendChild(overlay);
+  } else {
+    // Fallback gradient if no image
+    container.style.background = "linear-gradient(135deg, #1e1e2f 0%, #0b0b10 100%)";
   }
 
-  // Content wrapper
+  // Content animate in
   const content = document.createElement("div");
-  content.style.position = "relative";
+  content.style.maxWidth = "900px";
   content.style.zIndex = "2";
-  content.style.textAlign = "center"; // Default center for hero? Or configurable? 
-  // Let's assume center for Hero unless complex.
+  content.style.animation = "fadeInUp 1s ease-out forwards";
 
   if (props.kicker) {
     const k = document.createElement("div");
-    k.className = "muted";
+    k.style.fontFamily = "var(--font-body)";
     k.style.textTransform = "uppercase";
-    k.style.letterSpacing = "1px";
-    k.style.fontSize = "13px";
-    k.style.marginBottom = "8px";
+    k.style.letterSpacing = "3px";
+    k.style.fontSize = "14px";
+    k.style.fontWeight = "700";
+    k.style.marginBottom = "16px";
+    k.style.color = "rgba(255,255,255,0.8)";
     k.textContent = props.kicker;
     content.appendChild(k);
   }
 
   if (props.title) {
     const h1 = document.createElement("h1");
-    // Make it big
-    h1.style.fontSize = "42px";
-    h1.style.marginTop = "0";
+    // Style is handled by global css h1, which is now clamped and huge
+    // Add text shadow for legibility
     h1.textContent = props.title;
+    h1.style.textShadow = "0 10px 30px rgba(0,0,0,0.5)";
     content.appendChild(h1);
   }
 
   if (props.subtitle) {
     const sub = document.createElement("p");
-    sub.style.fontSize = "18px";
-    sub.style.opacity = "0.9";
-    sub.style.maxWidth = "600px";
-    sub.style.margin = "0 auto 20px";
     sub.textContent = props.subtitle;
+    // Enforce subtitle styling
+    sub.style.fontSize = "clamp(18px, 2vw, 24px)";
+    sub.style.maxWidth = "700px";
+    sub.style.margin = "0 auto 32px";
+    sub.style.textShadow = "0 2px 10px rgba(0,0,0,0.5)";
     content.appendChild(sub);
   }
 
-  // Badge / Date / Location Row
-  const metaRow = document.createElement("div");
-  metaRow.className = "row";
-  metaRow.style.justifyContent = "center"; // center row
+  // Meta Row (Badge, Date, Location)
+  if (props.badge || props.date || props.location) {
+    const metaRow = document.createElement("div");
+    metaRow.className = "row";
+    metaRow.style.justifyContent = "center";
 
-  if (props.badge) {
-    const b = document.createElement("span");
-    b.className = "badge";
-    b.textContent = props.badge;
-    metaRow.appendChild(b);
+    if (props.badge) {
+      const b = document.createElement("span");
+      b.className = "badge";
+      // Badges often look cool with accent color
+      b.style.background = "var(--accent)";
+      b.style.color = "#fff";
+      b.textContent = props.badge;
+      metaRow.appendChild(b);
+    }
+
+    if (props.date || props.location) {
+      const meta = document.createElement("span");
+      meta.style.fontWeight = "600";
+      meta.style.fontSize = "15px";
+      meta.style.letterSpacing = "0.5px";
+      meta.style.textTransform = "uppercase";
+
+      const parts = [];
+      if (props.date) parts.push(props.date);
+      if (props.location) parts.push(props.location);
+      meta.textContent = parts.join(" • ");
+      metaRow.appendChild(meta);
+    }
+    content.appendChild(metaRow);
   }
 
-  if (props.date || props.location) {
-    const meta = document.createElement("span");
-    meta.style.fontWeight = "600";
-    const parts = [];
-    if (props.date) parts.push(props.date);
-    if (props.location) parts.push(props.location);
-    meta.textContent = parts.join(" • ");
-    metaRow.appendChild(meta);
-  }
-
-  content.appendChild(metaRow);
   container.appendChild(content);
 
   return container;

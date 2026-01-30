@@ -1,182 +1,258 @@
 <!doctype html>
 <html lang="es">
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Evento en Lippu" />
-  <title>Lippu · Evento</title>
-  <style>
-    /* Reset & Base */
-    :root {
-      --bg: #0B0B10;
-      --card: #12121A;
-      --text: #ffffff;
-      --muted: #B5B5C0;
-      --accent: #7B32FF;
-      --radius: 18px;
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Evento en Lippu" />
+<title>Lippu · Evento</title>
+
+<!-- Google Fonts: Montserrat (Black/Bold) & Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap"
+  rel="stylesheet">
+
+<style>
+  /* Reset & Base */
+  :root {
+    --bg: #050505;
+    --card: #12121A;
+    /* Fallback */
+    --text: #ffffff;
+    --muted: #B5B5C0;
+    --accent: #FF3B30;
+    /* More vibrant red/orange like Akamba/Festivals */
+    --radius: 24px;
+    --font-display: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  #root {
+    max-width: 1100px;
+    /* Wider container */
+    margin: 0 auto;
+    padding: 0 0 40px;
+    /* No top padding, hero handles it */
+    display: flex;
+    /* Flex column for better spacing control than grid gap */
+    flex-direction: column;
+    gap: 60px;
+    /* Huge premium spacing */
+  }
+
+  /* Animations */
+  @keyframes kenBurns {
+    0% {
+      transform: scale(1);
     }
 
-    * {
-      box-sizing: border-box;
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 
-    img {
-      max-width: 100%;
-      display: block;
+  /* Utilities & Components */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Override Card to use Glass by default if needed, or keep separate */
+  .card {
+    background: #12121A;
+    /* Solid fallback */
+    border-radius: var(--radius);
+    padding: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: 99px;
+    /* Pill shape */
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(var(--accent-rgb, 255, 59, 48), 0.4);
+  }
+
+  .btn.secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .heroimg {
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Typography Overrides */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    line-height: 1.1;
+    margin: 0 0 16px;
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 84px);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 48px);
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 22px;
+  }
+
+  p {
+    margin: 0 0 20px;
+    font-size: 17px;
+    opacity: 0.9;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Grids & Layouts */
+  .grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .tile {
+    /* Now using glass style via JS or here? Let's default .tile to glass */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 32px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .tile:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .tile h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .tile p {
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .grid3 {
+      grid-template-columns: 1fr;
     }
 
     #root {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 22px;
-      display: grid;
-      gap: 32px;
+      padding: 0 16px 40px;
+      gap: 40px;
     }
 
-    /* Components */
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 22px;
-      border: 1px solid rgba(255, 255, 255, .06);
+    .row.reverse-mobile {
+      flex-direction: column-reverse;
     }
+  }
 
-    .muted {
-      color: var(--muted);
-    }
+  /* Netlify Identity Script */
+  script[src*="netlify-identity"] {
+    display: none;
+  }
+</style>
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 24px;
-      border-radius: 14px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      transition: opacity 0.2s;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    .btn.secondary {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, .18);
-    }
-
-    .row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .10);
-      font-weight: 600;
-      font-size: 13px;
-    }
-
-    .heroimg {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, .10);
-    }
-
-    h1 {
-      margin: 8px 0 6px;
-      font-size: 38px;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      margin: 0 0 16px;
-      font-size: 26px;
-      letter-spacing: -0.01em;
-    }
-
-    h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    p {
-      margin: 0 0 16px;
-    }
-
-    p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Grids & Layouts */
-    .grid3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .tile {
-      background: rgba(255, 255, 255, .06);
-      border-radius: 14px;
-      padding: 20px;
-      border: 1px solid rgba(255, 255, 255, .08);
-    }
-
-    .tile p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .divider {
-      height: 1px;
-      background: rgba(255, 255, 255, .08);
-      margin: 10px 0;
-    }
-
-    /* Utilities */
-    .carousel-container::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* hide scrollbar clean */
-
-    @media (max-width: 768px) {
-      .grid3 {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      .row.reverse-mobile {
-        flex-direction: column-reverse;
-      }
-    }
-  </style>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>

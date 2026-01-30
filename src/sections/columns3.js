@@ -4,23 +4,29 @@ export function renderColumns3(props) {
     if (props.title) {
         const h2 = document.createElement("h2");
         h2.textContent = props.title;
+        h2.style.marginBottom = "32px";
+        h2.style.textAlign = "center";
         container.appendChild(h2);
     }
 
     const grid = document.createElement("div");
-    grid.className = "grid3"; // defined in global css
+    grid.className = "grid3";
+
+    // Grid styling is handled by global CSS .grid3 and .tile (which now has glass effecs)
 
     const items = props.items || [];
     items.forEach(item => {
         const tile = document.createElement("div");
-        tile.className = "tile";
+        tile.className = "tile"; // uses .glass via css
 
         if (item.icon) {
             const icon = document.createElement("img");
+            // Use object-contain
             icon.src = item.icon;
-            icon.style.width = "48px";
-            icon.style.height = "48px";
-            icon.style.marginBottom = "12px";
+            icon.style.width = "64px"; // Bigger icons
+            icon.style.height = "64px";
+            icon.style.marginBottom = "24px";
+            icon.style.objectFit = "contain";
             tile.appendChild(icon);
         }
 

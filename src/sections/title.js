@@ -1,17 +1,21 @@
 export function renderTitle(props) {
   const container = document.createElement("div");
-  // Supports align: left, center, right
   container.style.textAlign = props.align || "left";
-  
-  // Supports level: h1, h2, h3. Default h2.
+  container.style.padding = "20px 0"; // spacing
+
   const tag = props.level || "h2";
   const el = document.createElement(tag);
   el.textContent = props.title || "";
-  
-  // Basic styling adjustment if needed
-  if (tag === "h1") el.style.margin = "32px 0 16px";
-  if (tag === "h2") el.style.margin = "24px 0 12px";
-  
+
+  // Specific tweaks for "Monumental" headers
+  if (props.align === "center") {
+    el.style.margin = "0 auto 16px";
+    el.style.maxWidth = "800px";
+  }
+
+  // Add decorative line if it's a section title?
+  // Akamba style often uses just big text. Let's keep it clean.
+
   container.appendChild(el);
   return container;
 }
