@@ -52,9 +52,15 @@
     },
     {
       "type": "checkout",
-      "title": "Registrate",
+      "title": "Asiste al Evento",
       "buttonText": "Registrate en Lippu",
       "text": ""
+    },
+    {
+      "type": "checkout",
+      "title": "Dueño de Ejemplar Frisón",
+      "buttonText": "Registra tu Caballo",
+      "customUrl": "https://lippu.app/discoverwa"
     },
     {
       "type": "map",
