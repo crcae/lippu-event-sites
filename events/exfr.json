@@ -49,6 +49,17 @@
         }
       ],
       "title": "Rancho el Descanso recibe a los jueces oficiales de la KFPS desde Países Bajos. Una cita indispensable para evaluar, premiar y elevar el valor internacional de sus ejemplares."
+    },
+    {
+      "type": "checkout",
+      "title": "Compra tus boletos",
+      "buttonText": "Comprar ahora"
+    },
+    {
+      "type": "map",
+      "title": "Ubicación",
+      "address": "Rancho el Descanso",
+      "mapUrl": "https://maps.app.goo.gl/v7vNk7DRbG2DeNgg8"
     }
   ]
 }
