@@ -1,14 +1,23 @@
 import { renderHero } from "./sections/hero.js";
-import { renderHighlights } from "./sections/highlights.js";
-import { renderCTA } from "./sections/cta.js";
-import { renderSchedule } from "./sections/schedule.js";
+import { renderTitle } from "./sections/title.js";
+import { renderCarousel } from "./sections/carousel.js";
+import { renderColumns3 } from "./sections/columns3.js";
+import { renderColumns2 } from "./sections/columns2.js";
+import { renderMedia1 } from "./sections/media1.js";
+import { renderVideo } from "./sections/video.js";
+import { renderCheckout } from "./sections/checkout.js";
 import { renderMap } from "./sections/map.js";
 
+// Registry mapping CMS keys to render functions
 const registry = {
   hero: renderHero,
-  highlights: renderHighlights,
-  cta: renderCTA,
-  schedule: renderSchedule,
+  title: renderTitle,
+  carousel: renderCarousel,
+  columns3: renderColumns3,
+  columns2: renderColumns2,
+  media1: renderMedia1,
+  video: renderVideo,
+  checkout: renderCheckout,
   map: renderMap
 };
 
@@ -37,8 +46,16 @@ export function renderEvent(data) {
   const sections = Array.isArray(data.sections) ? data.sections : [];
   for (const s of sections) {
     const fn = registry[s.type];
-    if (!fn) continue;
-    const node = fn(s.props || {}, data);
-    if (node) root.appendChild(node);
+    if (!fn) {
+      console.warn(`Section type "${s.type}" not found in registry.`);
+      continue;
+    }
+    try {
+      // Pass props and also full data context (useful for checkoutUrl etc)
+      const node = fn(s.props || {}, data);
+      if (node) root.appendChild(node);
+    } catch (e) {
+      console.error(`Error rendering section ${s.type}:`, e);
+    }
   }
 }

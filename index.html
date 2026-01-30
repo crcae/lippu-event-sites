@@ -1,42 +1,183 @@
 <!doctype html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="description" content="Evento en Lippu"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Evento en Lippu" />
   <title>Lippu · Evento</title>
   <style>
+    /* Reset & Base */
     :root {
-      --bg:#0B0B10; --card:#12121A; --text:#ffffff; --muted:#B5B5C0; --accent:#7B32FF;
+      --bg: #0B0B10;
+      --card: #12121A;
+      --text: #ffffff;
+      --muted: #B5B5C0;
+      --accent: #7B32FF;
       --radius: 18px;
     }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:var(--bg); color:var(--text); }
-    #root { max-width: 980px; margin: 0 auto; padding: 22px; display: grid; gap: 16px; }
-    .card { background:var(--card); border-radius:var(--radius); padding:22px; border: 1px solid rgba(255,255,255,.06); }
-    .muted { color:var(--muted); }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 12px 16px; border-radius: 14px; background:var(--accent);
-      color:#fff; text-decoration:none; font-weight:700;
+
+    * {
+      box-sizing: border-box;
     }
-    .btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,.18); }
-    .row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
-    .badge { display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.10); }
-    .heroimg { width:100%; margin-top:16px; border-radius: 16px; border: 1px solid rgba(255,255,255,.10); }
-    h1 { margin: 8px 0 6px; font-size: 34px; line-height: 1.15; }
-    h2 { margin: 0 0 10px; font-size: 22px; }
-    .grid3 { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .tile { background: rgba(255,255,255,.06); border-radius: 14px; padding: 14px; border: 1px solid rgba(255,255,255,.08); }
-    .tile h3 { margin: 0 0 6px; font-size: 16px; }
-    .tile p { margin: 0; color: var(--muted); }
-    .list { display:grid; gap: 10px; }
-    .li { display:flex; gap: 12px; align-items:flex-start; }
-    .time { min-width: 62px; font-weight: 800; }
-    .divider { height:1px; background: rgba(255,255,255,.08); margin: 10px 0; }
-    @media (max-width: 860px) { .grid3 { grid-template-columns: 1fr; } h1 { font-size: 28px; } }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    #root {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px;
+      display: grid;
+      gap: 32px;
+    }
+
+    /* Components */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .10);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .heroimg {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, .10);
+    }
+
+    h1 {
+      margin: 8px 0 6px;
+      font-size: 38px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Grids & Layouts */
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tile {
+      background: rgba(255, 255, 255, .06);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .tile p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, .08);
+      margin: 10px 0;
+    }
+
+    /* Utilities */
+    .carousel-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* hide scrollbar clean */
+
+    @media (max-width: 768px) {
+      .grid3 {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .row.reverse-mobile {
+        flex-direction: column-reverse;
+      }
+    }
   </style>
 </head>
+
 <body>
   <div id="root"></div>
 
@@ -64,4 +205,5 @@
     }
   </script>
 </body>
+
 </html>

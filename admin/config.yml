@@ -1,1 +1,131 @@
+backend:
+  name: git-gateway
+  branch: main
 
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "events"
+    label: "Eventos"
+    folder: "events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Slug (URL)", name: "slug", widget: "string", pattern: ["^[a-z0-9-_]+$", "Solo minúsculas, números y guioens"] }
+      - { label: "Checkout URL", name: "checkoutUrl", widget: "string", hint: "https://lippu.app/eventwa/..." }
+      
+      - label: "SEO & Meta"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: "Título pestaña", name: "title", widget: "string" }
+          - { label: "Descripción (Meta)", name: "description", widget: "text" }
+
+      - label: "Tema (Colores)"
+        name: "theme"
+        widget: "object"
+        collapsed: true
+        fields:
+          - { label: "Fondo Global", name: "bg", widget: "color", default: "#0B0B10" }
+          - { label: "Tarjetas", name: "card", widget: "color", default: "#12121A" }
+          - { label: "Texto Principal", name: "text", widget: "color", default: "#FFFFFF" }
+          - { label: "Texto Secundario", name: "muted", widget: "color", default: "#B5B5C0" }
+          - { label: "Acento (Botones)", name: "accent", widget: "color", default: "#7B32FF" }
+
+      - label: "Secciones (Bloques)"
+        name: "sections"
+        widget: "list"
+        types:
+          - label: "Título Simple"
+            name: "title"
+            widget: "object"
+            fields:
+              - { label: "Texto", name: "title", widget: "string" }
+              - { label: "Tipo Header", name: "level", widget: "select", options: ["h1", "h2", "h3"], default: "h2" }
+              - { label: "Alineación", name: "align", widget: "select", options: ["left", "center", "right"], default: "left" }
+
+          - label: "Hero (Principal)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+              - { label: "Kicker (Arriba)", name: "kicker", widget: "string", required: false }
+              - { label: "Badge", name: "badge", widget: "string", required: false }
+              - { label: "Fecha", name: "date", widget: "string", required: false }
+              - { label: "Ubicación", name: "location", widget: "string", required: false }
+              - { label: "Imagen Fondo", name: "image", widget: "image", required: false }
+              - { label: "Altura Mínima (px)", name: "minHeight", widget: "number", default: 400, value_type: "int" }
+
+          - label: "Carrusel Imágenes"
+            name: "carousel"
+            widget: "object"
+            fields:
+              - { label: "Imágenes", name: "images", widget: "list", field: { label: "Imagen", name: "src", widget: "image" } }
+              - { label: "Altura (px)", name: "height", widget: "number", default: 250 }
+
+          - label: "3 Columnas (Cards)"
+            name: "columns3"
+            widget: "object"
+            fields:
+              - { label: "Título Sección", name: "title", widget: "string", required: false }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Icono/Img", name: "icon", widget: "image", required: false }
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Texto", name: "text", widget: "text" }
+
+          - label: "2 Columnas (Texto/Img)"
+            name: "columns2"
+            widget: "object"
+            fields:
+              - { label: "Reversa en móvil", name: "reverseMobile", widget: "boolean", default: false }
+              - label: "Columna Izquierda"
+                name: "left"
+                widget: "object"
+                fields:
+                  - { label: "Tipo", name: "type", widget: "select", options: ["text", "image"] }
+                  - { label: "Contenido (Texto o URL Img)", name: "content", widget: "string" }
+                  - { label: "Imagen (si es tipo imagen)", name: "image", widget: "image", required: false, hint: "Usar este si es imagen" }
+              - label: "Columna Derecha"
+                name: "right"
+                widget: "object"
+                 # Simplificación: Usamos mismos campos
+                fields:
+                  - { label: "Tipo", name: "type", widget: "select", options: ["text", "image"] }
+                  - { label: "Contenido (Texto)", name: "content", widget: "text", required: false }
+                  - { label: "Imagen", name: "image", widget: "image", required: false }
+
+          - label: "Media Full (1 Col)"
+            name: "media1"
+            widget: "object"
+            fields:
+              - { label: "Imagen", name: "image", widget: "image" }
+              - { label: "Texto Superpuesto", name: "overlayText", widget: "string", required: false }
+
+          - label: "Video"
+            name: "video"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string", required: false }
+              - { label: "URL Embed (Youtube/Vimeo)", name: "url", widget: "string", hint: "Usa la URL completa o el código embed" }
+
+          - label: "Checkout (Botón)"
+            name: "checkout"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string", default: "Compra tus boletos" }
+              - { label: "Texto descriptivo", name: "text", widget: "text", required: false }
+              - { label: "Texto Botón", name: "buttonText", widget: "string", default: "Comprar ahora" }
+              - { label: "Sobreescribir URL Checkout", name: "customUrl", widget: "string", required: false, hint: "Deja vacío para usar el del evento" }
+
+          - label: "Mapa"
+            name: "map"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string", default: "Ubicación" }
+              - { label: "Dirección Texto", name: "address", widget: "string" }
+              - { label: "URL Google Maps", name: "mapUrl", widget: "string", hint: "Pegar link corto o largo de Google Maps" }

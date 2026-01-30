@@ -1,23 +1,46 @@
 export function renderMap(props) {
-  const el = document.createElement("section");
-  el.className = "card";
+  const container = document.createElement("div");
+  container.className = "card"; // Optional: wrap in card or not?
+  // Let's make it look like part of location info
 
-  const title = props.title || "Ubicación";
-  const address = props.address || "";
-  const url = props.googleMapsUrl || "";
+  if (props.title) {
+    const h2 = document.createElement("h2");
+    h2.textContent = props.title;
+    container.appendChild(h2);
+  }
 
-  el.innerHTML = `
-    <h2>${escapeHtml(title)}</h2>
-    ${address ? `<p class="muted" style="margin:0 0 12px;">${escapeHtml(address)}</p>` : ""}
-    ${url ? `<a class="btn secondary" href="${escapeAttr(url)}" rel="noopener">Abrir en Google Maps</a>` : ""}
-  `;
-  return el;
+  if (props.address) {
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.style.marginBottom = "16px";
+    p.textContent = props.address;
+    container.appendChild(p);
+  }
+
+  if (props.mapUrl) {
+    // If it's an embed URL (has /embed in it), use iframe
+    // If it's a normal maps link, maybe just a button?
+    // Requirement says "embed/link". We'll try to embed if possible or link.
+
+    // Simplest: just an iframe that expects the user to paste the "Embed HTML" source src? 
+    // Or we try to be smart. 
+    // Let's assume user pastes the src from the embed code.
+
+    const wrapper = document.createElement("div");
+    wrapper.style.height = "300px";
+    wrapper.style.borderRadius = "12px";
+    wrapper.style.overflow = "hidden";
+
+    const iframe = document.createElement("iframe");
+    iframe.src = props.mapUrl;
+    iframe.width = "100%";
+    iframe.height = "100%";
+    iframe.style.border = "0";
+    iframe.loading = "lazy";
+
+    wrapper.appendChild(iframe);
+    container.appendChild(wrapper);
+  }
+
+  return container;
 }
-
-function escapeHtml(str) {
-  return String(str ?? "")
-    .replaceAll("&","&amp;").replaceAll("<","&lt;")
-    .replaceAll(">","&gt;").replaceAll('"',"&quot;")
-    .replaceAll("'","&#39;");
-}
-function escapeAttr(str) { return escapeHtml(str); }
