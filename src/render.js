@@ -36,11 +36,14 @@ function setSEO(seo) {
   if (meta && seo?.description) meta.setAttribute("content", seo.description);
 }
 
-export function renderEvent(data) {
+// Accepts optional root element (for CMS preview)
+export function renderEvent(data, customRoot) {
   applyTheme(data.theme);
   setSEO(data.seo);
 
-  const root = document.getElementById("root");
+  const root = customRoot || document.getElementById("root");
+  if (!root) return;
+
   root.innerHTML = "";
 
   const sections = Array.isArray(data.sections) ? data.sections : [];
@@ -51,7 +54,7 @@ export function renderEvent(data) {
       continue;
     }
     try {
-      // Pass props and also full data context (useful for checkoutUrl etc)
+      // Pass props and also full data context
       const node = fn(s.props || {}, data);
       if (node) root.appendChild(node);
     } catch (e) {

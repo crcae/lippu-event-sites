@@ -1,13 +1,113 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lippu Events Manager</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Preview Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Load Renderer Modules -->
+  <script type="module">
+    import { renderEvent } from "../src/render.js";
+
+    // Register Styles
+    CMS.registerPreviewStyle("../src/style.css");
+    // Also fonts need to be registered or just loaded via main frame (which works for google fonts usually if not blocked)
+    // Actually, registerPreviewStyle behaves by adding links to iframe. 
+    CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap");
+
+    // Create the Preview Component
+    const EventPreview = createClass({
+      componentDidMount() {
+        this.renderContent();
+      },
+      componentDidUpdate() {
+        this.renderContent();
+      },
+      renderContent() {
+        const entry = this.props.entry;
+        // Convert Immutable Map to JS object
+        const data = entry.toJS().data;
+
+        // Render into the ref
+        if (this.previewRef) {
+          renderEvent(data, this.previewRef);
+        }
+      },
+      render() {
+        // Safe check for slug
+        const slug = this.props.entry.getIn(['data', 'slug']) || 'demo';
+        // Construct live url - adjust domain as needed
+        const liveUrl = `https://${window.location.hostname === 'localhost' ? 'localhost:3000' : window.location.hostname.replace('admin', '')}/?event=${slug}`;
+
+        // Or if using subdomains in prod: https://slug.lippu.app
+        const isProd = window.location.hostname !== 'localhost';
+        const prettyUrl = isProd ? `https://${slug}.lippu.app` : liveUrl;
+
+        return h('div', {},
+          // Top Bar for Actions
+          h('div', {
+            style: {
+              padding: '20px',
+              background: '#1a1a1a',
+              borderBottom: '1px solid #333',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              color: '#fff',
+              fontFamily: 'sans-serif'
+            }
+          },
+            h('span', {}, `Previewing: ${slug}`),
+            h('a', {
+              href: prettyUrl,
+              target: '_blank',
+              style: {
+                background: '#7B32FF',
+                color: '#fff',
+                textDecoration: 'none',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                fontWeight: 'bold',
+                fontSize: '14px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }
+            }, '↗ Abrir Sitio Real')
+          ),
+
+          // Container for the preview rendering
+          h('div', {
+            id: 'preview-root',
+            ref: ref => this.previewRef = ref,
+            // Inline style to match index.html #root settings for correct context
+            style: {
+              maxWidth: '1100px',
+              margin: '0 auto',
+              padding: '40px 20px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '60px'
+            }
+          })
+        );
+      }
+    });
+
+    // Register to 'events' collection
+    CMS.registerPreviewTemplate("events", EventPreview);
+  </script>
 </body>
+
 </html>
