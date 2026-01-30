@@ -1,14 +1,14 @@
-window.LIPPU_EVENTS = {
-  "evento1": {
-    slug: "evento1",
-    title: "Evento 1 · Lippu",
-    description: "Landing personalizada del Evento 1 (edita este texto).",
-    date: "Próximamente"
-  },
-  "evento2": {
-    slug: "evento2",
-    title: "Evento 2 · Lippu",
-    description: "Landing personalizada del Evento 2 (edita este texto).",
-    date: "Próximamente"
-  }
-};
+/events
+  evento1.json
+  evento2.json
+  torneo-padel.json
+/src
+  main.js
+  render.js
+  sections/
+    hero.js
+    about.js
+    cta.js
+    schedule.js
+    map.js
+index.html
