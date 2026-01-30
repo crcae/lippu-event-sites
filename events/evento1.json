@@ -1,0 +1,56 @@
+{
+  "slug": "evento1",
+  "seo": {
+    "title": "Evento 1 | Lippu",
+    "description": "Landing PRO (builder por secciones) para Evento 1."
+  },
+  "theme": {
+    "bg": "#0B0B10",
+    "card": "#12121A",
+    "text": "#FFFFFF",
+    "muted": "#B5B5C0",
+    "accent": "#7B32FF"
+  },
+  "checkoutUrl": "https://lippu.app/eventwa/eventuniqid_evento1",
+  "sections": [
+    {
+      "type": "hero",
+      "props": {
+        "kicker": "Lippu presenta",
+        "title": "Evento 1",
+        "subtitle": "Esta landing usa el builder por secciones.",
+        "badge": "Acceso digital",
+        "date": "Próximamente",
+        "location": "Guadalajara, Jalisco"
+      }
+    },
+    {
+      "type": "highlights",
+      "props": {
+        "title": "Incluye",
+        "items": [
+          {
+            "title": "Compra rápida",
+            "text": "Te mandamos directo al checkout de este evento."
+          },
+          {
+            "title": "Branding",
+            "text": "Colores e imágenes por evento."
+          },
+          {
+            "title": "Secciones",
+            "text": "Activa/ordena módulos como quieras."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "props": {
+        "title": "Listo para comprar",
+        "text": "Este botón va al checkout específico de este evento.",
+        "buttonText": "Comprar boleto"
+      }
+    }
+  ]
+}

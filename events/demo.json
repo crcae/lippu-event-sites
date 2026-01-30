@@ -1,1 +1,34 @@
-
+{
+  "slug": "demo",
+  "seo": {
+    "title": "Demo | Lippu",
+    "description": "Página demo para pruebas en netlify.app"
+  },
+  "theme": {
+    "bg": "#0B0B10",
+    "card": "#12121A",
+    "text": "#FFFFFF",
+    "muted": "#B5B5C0",
+    "accent": "#22C55E"
+  },
+  "checkoutUrl": "https://lippu.app/eventwa/eventuniqid_demo",
+  "sections": [
+    {
+      "type": "hero",
+      "props": {
+        "kicker": "Builder Demo",
+        "title": "Demo de landing",
+        "subtitle": "Prueba con ?event=evento1 o ?event=evento2",
+        "badge": "PRO builder"
+      }
+    },
+    {
+      "type": "cta",
+      "props": {
+        "title": "Checkout",
+        "text": "Este demo también tiene su URL de checkout.",
+        "buttonText": "Ir al checkout"
+      }
+    }
+  ]
+}

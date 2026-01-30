@@ -1,0 +1,67 @@
+{
+  "slug": "evento2",
+  "seo": {
+    "title": "Evento 2 | Lippu",
+    "description": "Ejemplo con agenda + ubicación."
+  },
+  "theme": {
+    "bg": "#081018",
+    "card": "#0E1A2A",
+    "text": "#FFFFFF",
+    "muted": "#A9B7C8",
+    "accent": "#0E64E5"
+  },
+  "checkoutUrl": "https://lippu.app/eventwa/eventuniqid_evento2",
+  "sections": [
+    {
+      "type": "hero",
+      "props": {
+        "kicker": "Lippu",
+        "title": "Evento 2",
+        "subtitle": "Otro layout: agenda + mapa + CTA.",
+        "badge": "Cupo limitado",
+        "date": "2026-02-15",
+        "location": "Zapopan, Jalisco"
+      }
+    },
+    {
+      "type": "schedule",
+      "props": {
+        "title": "Agenda",
+        "items": [
+          {
+            "time": "10:00",
+            "title": "Check-in",
+            "text": "Llegada y registro"
+          },
+          {
+            "time": "11:00",
+            "title": "Inicio",
+            "text": "Arrancan actividades"
+          },
+          {
+            "time": "18:00",
+            "title": "Cierre",
+            "text": "Fin del evento"
+          }
+        ]
+      }
+    },
+    {
+      "type": "map",
+      "props": {
+        "title": "Ubicación",
+        "address": "Zapopan, Jalisco",
+        "googleMapsUrl": "https://maps.google.com/?q=Zapopan%2C%20Jalisco"
+      }
+    },
+    {
+      "type": "cta",
+      "props": {
+        "title": "Compra tu acceso",
+        "text": "Checkout de este evento (URL distinta).",
+        "buttonText": "Comprar boleto"
+      }
+    }
+  ]
+}
