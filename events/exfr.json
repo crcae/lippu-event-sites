@@ -1,23 +1,34 @@
----
-slug: exfr
-checkoutUrl: https://lippu.app/eventwa/torneo-relampago-de-padel---empresariales-1769737682484x542399235986554900?uniq=1769737682484x542399235986554900
-seo:
-  title: torneo relampago de padel empresariales
-  description: torneo relampago de padel empresariales por la upo en gdl
-theme:
-  bg: "#0B0B10"
-  card: "#12121A"
-  text: "#FFFFFF"
-  muted: "#B5B5C0"
-  accent: "#7B32FF"
-sections:
-  - type: title
-    level: h2
-    align: left
-    title: torneo relampago de padel empresariales
-  - type: hero
-    minHeight: 400
-    title: torneo relampago de padel empresariales
-    subtitle: torneo
-    image: /assets/uploads/los-beneficios-de-vivir-en-un-apartamento-con-amenidades-5.png
----
+{
+  "slug": "exfr",
+  "checkoutUrl": "https://lippu.app/eventwa/torneo-relampago-de-padel---empresariales-1769737682484x542399235986554900?uniq=1769737682484x542399235986554900",
+  "seo": {
+    "title": "torneo relampago de padel empresariales",
+    "description": "torneo relampago de padel empresariales por la upo en gdl"
+  },
+  "theme": {
+    "bg": "#0B0B10",
+    "card": "#12121A",
+    "text": "#FFFFFF",
+    "muted": "#B5B5C0",
+    "accent": "#7B32FF"
+  },
+  "sections": [
+    {
+      "type": "title",
+      "props": {
+        "level": "h2",
+        "align": "left",
+        "title": "torneo relampago de padel empresariales"
+      }
+    },
+    {
+      "type": "hero",
+      "props": {
+        "minHeight": 400,
+        "title": "torneo relampago de padel empresariales",
+        "subtitle": "torneo",
+        "image": "/assets/uploads/los-beneficios-de-vivir-en-un-apartamento-con-amenidades-5.png"
+      }
+    }
+  ]
+}
