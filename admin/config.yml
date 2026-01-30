@@ -10,6 +10,8 @@ collections:
     label: "Eventos"
     folder: "events"
     create: true
+    extension: "json"
+    format: "json-frontmatter" 
     slug: "{{slug}}"
     fields:
       - { label: "Slug (URL)", name: "slug", widget: "string", pattern: ["^[a-z0-9-_]+$", "Solo minúsculas, números y guioens"] }
