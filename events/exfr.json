@@ -1,16 +1,66 @@
 {
-  "slug": "exfr",
-  "checkoutUrl": "https://lippu.app/eventwa/torneo-relampago-de-padel---empresariales-1769737682484x542399235986554900?uniq=1769737682484x542399235986554900",
+"slug": "exfr",
+  "checkoutUrl": "https://lippu.app/eventwa/inspecci%C3%B3n-del-caballo-fris%C3%B3n-en-m%C3%A9xico-por-la-kfps-1769533055910x522847725485555700?uniq=1769533055910x522847725485555700",
   "seo": {
-    "title": "torneo relampago de padel empresariales",
-    "description": "torneo relampago de padel empresariales por la upo en gdl"
+    "title": "Inspección del Caballo Frisón en México por KFPS",
+    "description": "Vive la pasión por el Frisón con la KFPS en México. Marzo 2026, Rancho El Descanso. Inspecciones, clínica y experiencias VIP. ¡Cupo limitado, regístrate!"
   },
   "theme": {
-    "bg": "#d3d3e7",
+    "bg": "#0d2632",
     "card": "#12121A",
     "text": "#FFFFFF",
     "muted": "#B5B5C0",
-    "accent": "#7B32FF"
+    "accent": "#109bff"
   },
-  "sections": []
+  "sections": [
+    {
+      "badge": "Registrate gratis",
+      "date": "13/03/2026 - 15/03/2026",
+      "kicker": "2026",
+      "location": "",
+      "subtitle": "Rancho el Descanso",
+      "title": "Inspección del Caballo Frisón en México por KFPS",
+      "minHeight": 600,
+      "type": "hero",
+      "image": "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
+    },
+    {
+      "type": "carousel",
+      "height": 400,
+      "images": [
+        "/assets/uploads/whatsapp-image-2026-01-27-at-12.38.52-pm.jpeg",
+        "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
+      ]
+    },
+    {
+      "type": "columns3",
+      "items": [
+        {
+          "title": "EVALUACIÓN Y PREDICADOS",
+          "text": "Certifica la calidad de tus caballos presentándolos ante los jueces oficiales de la KFPS provenientes de Holanda. Las cuotas de inscripción se han fijado en $4,000 MXN para ejemplares menores de 3 años y $5,000 MXN para los mayores de 3 años. Además, para asegurar la mejor presentación en pista, ofrecemos el servicio de corredores profesionales de los Países Bajos por $2,500 MXN. Recuerda que es indispensable tener tu cuenta KFPS activa y el certificado original del caballo."
+        },
+        {
+          "title": "EXPERIENCIA VIP",
+          "text": "Vive la Inspección KFPS 2026 con la máxima comodidad y una vista privilegiada a la pista reservando una de nuestras Mesas VIP. Este espacio exclusivo está diseñado para quienes buscan una experiencia superior. El costo por mesa es de $5,000 MXN por un día (sábado o domingo), o bien, puedes adquirir el paquete de fin de semana por $9,000 MXN. La disponibilidad es muy estricta, limitada únicamente a 25 mesas por día."
+        },
+        {
+          "title": "ASISTENCIA GRATUTITA",
+          "text": "Únete a nosotros en Rancho El Descanso para ser testigo de la majestuosidad del caballo Frisón. Tu acceso te permitirá presenciar la clínica especializada del viernes 13 y disfrutar de las inspecciones oficiales durante el sábado 14 y domingo 15 de marzo. El evento está diseñado para toda la familia y contará con venta de alimentos y bebidas durante toda la jornada. Te recomendamos asegurar tu lugar cuanto antes, ya que el aforo está limitado a 1,000 asistentes por día."
+        }
+      ],
+      "title": "Rancho el Descanso recibe a los jueces oficiales de la KFPS desde Países Bajos. Una cita indispensable para evaluar, premiar y elevar el valor internacional de sus ejemplares."
+    },
+    {
+      "type": "checkout",
+      "title": "Registrate",
+      "buttonText": "Registrate en Lippu",
+      "text": ""
+    },
+    {
+      "type": "map",
+      "title": "Ubicación",
+      "address": "Rancho el Descanso",
+      "mapUrl": "https://maps.app.goo.gl/v7vNk7DRbG2DeNgg8"
+    }
+  ]
 }
