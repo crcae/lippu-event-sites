@@ -52,8 +52,9 @@
     },
     {
       "type": "checkout",
-      "title": "Compra tus boletos",
-      "buttonText": "Comprar ahora"
+      "title": "Registrate",
+      "buttonText": "Registrate en Lippu",
+      "text": ""
     },
     {
       "type": "map",
