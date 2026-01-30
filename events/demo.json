@@ -14,73 +14,61 @@
   "sections": [
     {
       "type": "hero",
-      "props": {
-        "kicker": "10 DE MAYO 2026 • GUADALAJARA",
-        "title": "EXPERIENCIA ETÉREA",
-        "subtitle": "Un festival donde la música, el arte y la naturaleza convergen en los campos de agave.",
-        "badge": "ÚLTIMOS BOLETOS",
-        "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
-        "minHeight": 700
-      }
+      "kicker": "10 DE MAYO 2026 • GUADALAJARA",
+      "title": "EXPERIENCIA ETÉREA",
+      "subtitle": "Un festival donde la música, el arte y la naturaleza convergen en los campos de agave.",
+      "badge": "ÚLTIMOS BOLETOS",
+      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
+      "minHeight": 700
     },
     {
       "type": "title",
-      "props": {
-        "title": "LINEUP ESTELAR",
-        "level": "h2",
-        "align": "center"
-      }
+      "title": "LINEUP ESTELAR",
+      "level": "h2",
+      "align": "center"
     },
     {
       "type": "columns3",
-      "props": {
-        "items": [
-          {
-            "title": "Electronic Stage",
-            "text": "Los mejores DJs de la escena underground mundial en un escenario 360.",
-            "icon": "https://img.icons8.com/ios-filled/100/ffffff/dj.png"
-          },
-          {
-            "title": "Art District",
-            "text": "Instalaciones monumentales de artistas locales e internacionales.",
-            "icon": "https://img.icons8.com/ios-filled/100/ffffff/monument.png"
-          },
-          {
-            "title": "Gastronomía",
-            "text": "Una selección curada de la mejor cocina de autor de la región.",
-            "icon": "https://img.icons8.com/ios-filled/100/ffffff/restaurant.png"
-          }
-        ]
-      }
+      "items": [
+        {
+          "title": "Electronic Stage",
+          "text": "Los mejores DJs de la escena underground mundial en un escenario 360.",
+          "icon": "https://img.icons8.com/ios-filled/100/ffffff/dj.png"
+        },
+        {
+          "title": "Art District",
+          "text": "Instalaciones monumentales de artistas locales e internacionales.",
+          "icon": "https://img.icons8.com/ios-filled/100/ffffff/monument.png"
+        },
+        {
+          "title": "Gastronomía",
+          "text": "Una selección curada de la mejor cocina de autor de la región.",
+          "icon": "https://img.icons8.com/ios-filled/100/ffffff/restaurant.png"
+        }
+      ]
     },
     {
       "type": "checkout",
-      "props": {
-        "title": "ASEGURA TU LUGAR",
-        "text": "La fase 2 está por terminar. No te quedes fuera de esta celebración única.",
-        "buttonText": "ADQUIRIR ACCESOS"
-      }
+      "title": "ASEGURA TU LUGAR",
+      "text": "La fase 2 está por terminar. No te quedes fuera de esta celebración única.",
+      "buttonText": "ADQUIRIR ACCESOS"
     },
     {
       "type": "columns2",
-      "props": {
-        "reverseMobile": true,
-        "left": {
-          "type": "image",
-          "image": "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=1200&q=80"
-        },
-        "right": {
-          "type": "text",
-          "content": "### TRANSPORTE OFICIAL\n\nContamos con rutas oficiales saliendo desde distintos puntos de la ciudad para tu comodidad y seguridad.\n\nEl viaje es parte de la experiencia. Disfruta del paisaje agavero mientras te preparas para lo inolvidable."
-        }
+      "reverseMobile": true,
+      "left": {
+        "type": "image",
+        "image": "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=1200&q=80"
+      },
+      "right": {
+        "type": "text",
+        "content": "### TRANSPORTE OFICIAL\n\nContamos con rutas oficiales saliendo desde distintos puntos de la ciudad para tu comodidad y seguridad.\n\nEl viaje es parte de la experiencia. Disfruta del paisaje agavero mientras te preparas para lo inolvidable."
       }
     },
     {
       "type": "media1",
-      "props": {
-        "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1600",
-        "overlayText": "NOS VEMOS EN EL CAMPO"
-      }
+      "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1600",
+      "overlayText": "NOS VEMOS EN EL CAMPO"
     }
   ]
 }
