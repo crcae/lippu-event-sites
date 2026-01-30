@@ -25,14 +25,6 @@
       "image": "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
     },
     {
-      "type": "carousel",
-      "height": 400,
-      "images": [
-        "/assets/uploads/whatsapp-image-2026-01-27-at-12.38.52-pm.jpeg",
-        "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
-      ]
-    },
-    {
       "type": "columns3",
       "items": [
         {
@@ -49,6 +41,14 @@
         }
       ],
       "title": "Rancho el Descanso recibe a los jueces oficiales de la KFPS desde Países Bajos. Una cita indispensable para evaluar, premiar y elevar el valor internacional de sus ejemplares."
+    },
+    {
+      "type": "carousel",
+      "height": 400,
+      "images": [
+        "/assets/uploads/whatsapp-image-2026-01-27-at-12.38.52-pm.jpeg",
+        "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
+      ]
     },
     {
       "type": "checkout",
