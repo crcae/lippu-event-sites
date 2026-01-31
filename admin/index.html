@@ -90,7 +90,15 @@
           // Container for the preview rendering
           h('div', {
             id: 'preview-root',
-            ref: ref => this.previewRef = ref,
+            // The rendering logic is now within this ref callback, which is async.
+            ref: async (el) => {
+              if (el && data) {
+                // Dynamically import renderEvent
+                const { renderEvent } = await import('../src/render.js');
+                // Call renderEvent with await
+                await renderEvent(data, el);
+              }
+            },
             // Inline style to match index.html #root settings for correct context
             style: {
               maxWidth: '1100px',

@@ -55,7 +55,7 @@ const markdownToHtml = (text) => {
 export { markdownToHtml };
 
 // Accepts optional root element (for CMS preview)
-export function renderEvent(data, customRoot) {
+export async function renderEvent(data, customRoot) {
   applyTheme(data.theme);
   setSEO(data.seo);
 
