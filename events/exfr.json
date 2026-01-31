@@ -14,6 +14,12 @@
   },
   "sections": [
     {
+      "type": "title",
+      "level": "h1",
+      "align": "center",
+      "title": "Inspección del Caballo Frisón en México por KFPS"
+    },
+    {
       "badge": "",
       "date": "",
       "kicker": "",
