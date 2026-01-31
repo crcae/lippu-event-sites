@@ -39,10 +39,27 @@
     import { getSlug, loadEvent } from "./src/main.js";
     import { renderEvent } from "./src/render.js";
 
-          </div >
-        </div >
-      `;
-    }
+    (async () => {
+      try {
+        const slug = getSlug();
+        const data = await loadEvent(slug);
+        await renderEvent(data);
+      } catch (e) {
+        console.error("Error loading event:", e);
+        document.getElementById("root").innerHTML = `
+          <div class="card">
+            <div class="muted">Lippu</div>
+            <h1>Evento no encontrado</h1>
+            <p class="muted">No hay configuración para <b>${slug}</b>.</p>
+            <div class="divider"></div>
+            <p class="muted" style="word-break:break-word;">${String(e.message || e)}</p>
+            <div class="row" style="margin-top:12px;">
+              <a class="btn secondary" href="https://lippu.app" rel="noopener">Ir a Lippu</a>
+            </div>
+          </div>
+        `;
+      }
+    })();
   </script>
 </body>
 

@@ -34,14 +34,14 @@
       componentDidUpdate() {
         this.renderContent();
       },
-      renderContent() {
+      async renderContent() {
         const entry = this.props.entry;
         // Convert Immutable Map to JS object
         const data = entry.toJS().data;
 
         // Render into the ref
         if (this.previewRef) {
-          renderEvent(data, this.previewRef);
+          await renderEvent(data, this.previewRef);
         }
       },
       render() {
@@ -90,23 +90,15 @@
           // Container for the preview rendering
           h('div', {
             id: 'preview-root',
-            // The rendering logic is now within this ref callback, which is async.
-            ref: async (el) => {
-              if (el && data) {
-                // Dynamically import renderEvent
-                const { renderEvent } = await import('../src/render.js');
-                // Call renderEvent with await
-                await renderEvent(data, el);
-              }
-            },
+            ref: ref => this.previewRef = ref,
             // Inline style to match index.html #root settings for correct context
             style: {
-              maxWidth: '1100px',
+              maxWidth: '1440px',
               margin: '0 auto',
-              padding: '40px 20px',
+              padding: '0',
               display: 'flex',
               flexDirection: 'column',
-              gap: '60px'
+              gap: '0'
             }
           })
         );
