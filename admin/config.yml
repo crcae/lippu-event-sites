@@ -46,19 +46,34 @@ collections:
               - { label: "Texto", name: "title", widget: "string" }
               - { label: "Tipo Header", name: "level", widget: "select", options: ["h1", "h2", "h3"], default: "h2" }
               - { label: "Alineación", name: "align", widget: "select", options: ["left", "center", "right"], default: "left" }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Fondo", name: "bg", widget: "color", required: false }
+                  - { label: "Color Texto", name: "text", widget: "color", required: false }
+                  - { label: "Padding", name: "padding", widget: "select", options: ["small", "normal", "large"], default: "normal" }
 
           - label: "Hero (Principal)"
             name: "hero"
             widget: "object"
             fields:
               - { label: "Título", name: "title", widget: "string" }
-              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+              - { label: "Subtítulo", name: "subtitle", widget: "markdown", required: false }
               - { label: "Kicker (Arriba)", name: "kicker", widget: "string", required: false }
               - { label: "Badge", name: "badge", widget: "string", required: false }
               - { label: "Fecha", name: "date", widget: "string", required: false }
               - { label: "Ubicación", name: "location", widget: "string", required: false }
               - { label: "Imagen Fondo", name: "image", widget: "image", required: false }
               - { label: "Altura Mínima (px)", name: "minHeight", widget: "number", default: 400, value_type: "int" }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Color Texto", name: "text", widget: "color", required: false }
+                  - { label: "Overlay Color", name: "overlay", widget: "color", required: false }
 
           - label: "Carrusel Imágenes"
             name: "carousel"
@@ -66,6 +81,13 @@ collections:
             fields:
               - { label: "Imágenes", name: "images", widget: "list", field: { label: "Imagen", name: "src", widget: "image" } }
               - { label: "Altura (px)", name: "height", widget: "number", default: 250 }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Fondo", name: "bg", widget: "color", required: false }
+                  - { label: "Ancho Completo", name: "fullWidth", widget: "boolean", default: false }
 
           - label: "3 Columnas (Cards)"
             name: "columns3"
@@ -78,7 +100,14 @@ collections:
                 fields:
                   - { label: "Icono/Img", name: "icon", widget: "image", required: false }
                   - { label: "Título", name: "title", widget: "string" }
-                  - { label: "Texto", name: "text", widget: "text" }
+                  - { label: "Texto", name: "text", widget: "markdown" }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Fondo", name: "bg", widget: "color", required: false }
+                  - { label: "Color Texto", name: "text", widget: "color", required: false }
 
           - label: "2 Columnas (Texto/Img)"
             name: "columns2"
@@ -90,16 +119,22 @@ collections:
                 widget: "object"
                 fields:
                   - { label: "Tipo", name: "type", widget: "select", options: ["text", "image"] }
-                  - { label: "Contenido (Texto o URL Img)", name: "content", widget: "string" }
-                  - { label: "Imagen (si es tipo imagen)", name: "image", widget: "image", required: false, hint: "Usar este si es imagen" }
+                  - { label: "Contenido (Texto)", name: "content", widget: "markdown", required: false }
+                  - { label: "Imagen (si es tipo imagen)", name: "image", widget: "image", required: false }
               - label: "Columna Derecha"
                 name: "right"
                 widget: "object"
-                 # Simplificación: Usamos mismos campos
                 fields:
                   - { label: "Tipo", name: "type", widget: "select", options: ["text", "image"] }
-                  - { label: "Contenido (Texto)", name: "content", widget: "text", required: false }
+                  - { label: "Contenido (Texto)", name: "content", widget: "markdown", required: false }
                   - { label: "Imagen", name: "image", widget: "image", required: false }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Fondo", name: "bg", widget: "color", required: false }
+                  - { label: "Color Texto", name: "text", widget: "color", required: false }
 
           - label: "Media Full (1 Col)"
             name: "media1"
@@ -107,6 +142,13 @@ collections:
             fields:
               - { label: "Imagen", name: "image", widget: "image" }
               - { label: "Texto Superpuesto", name: "overlayText", widget: "string", required: false }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Fondo", name: "bg", widget: "color", required: false }
+                  - { label: "Ancho Completo", name: "fullWidth", widget: "boolean", default: true }
 
           - label: "Video"
             name: "video"
@@ -114,15 +156,29 @@ collections:
             fields:
               - { label: "Título", name: "title", widget: "string", required: false }
               - { label: "URL Embed (Youtube/Vimeo)", name: "url", widget: "string", hint: "Usa la URL completa o el código embed" }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Fondo", name: "bg", widget: "color", required: false }
 
           - label: "Checkout (Botón)"
             name: "checkout"
             widget: "object"
             fields:
               - { label: "Título", name: "title", widget: "string", default: "Compra tus boletos" }
-              - { label: "Texto descriptivo", name: "text", widget: "text", required: false }
+              - { label: "Texto descriptivo", name: "text", widget: "markdown", required: false }
               - { label: "Texto Botón", name: "buttonText", widget: "string", default: "Comprar ahora" }
               - { label: "Sobreescribir URL Checkout", name: "customUrl", widget: "string", required: false, hint: "Deja vacío para usar el del evento" }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Fondo", name: "bg", widget: "color", required: false }
+                  - { label: "Color Texto", name: "text", widget: "color", required: false }
+                  - { label: "Color Botón", name: "accent", widget: "color", required: false }
 
           - label: "Mapa"
             name: "map"
@@ -131,3 +187,25 @@ collections:
               - { label: "Título", name: "title", widget: "string", default: "Ubicación" }
               - { label: "Dirección Texto", name: "address", widget: "string" }
               - { label: "URL Google Maps", name: "mapUrl", widget: "string", hint: "Pegar link corto o largo de Google Maps" }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Fondo", name: "bg", widget: "color", required: false }
+
+          - label: "Cuenta Regresiva"
+            name: "countdown"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string", default: "El evento comienza en:" }
+              - { label: "Fecha Objetivo", name: "targetDate", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
+              - label: "Estilo"
+                name: "style"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - { label: "Fondo", name: "bg", widget: "color", required: false }
+                  - { label: "Color Texto", name: "text", widget: "color", required: false }
+                  - { label: "Color Unidades", name: "accent", widget: "color", required: false }
+

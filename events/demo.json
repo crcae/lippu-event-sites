@@ -16,23 +16,38 @@
       "type": "hero",
       "kicker": "10 DE MAYO 2026 • GUADALAJARA",
       "title": "EXPERIENCIA ETÉREA",
-      "subtitle": "Un festival donde la música, el arte y la naturaleza convergen en los campos de agave.",
+      "subtitle": "Un festival donde la **música**, el **arte** y la **naturaleza** convergen en los campos de agave.\n\n* Fase 1: Agotada\n* Fase 2: Disponible",
       "badge": "ÚLTIMOS BOLETOS",
       "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
-      "minHeight": 700
+      "minHeight": 700,
+      "style": {
+        "overlay": "rgba(0,0,0,0.5)"
+      }
+    },
+    {
+      "type": "countdown",
+      "title": "EL RITUAL COMIENZA EN:",
+      "targetDate": "2026-05-10T20:00:00Z",
+      "style": {
+        "padding": "large",
+        "bg": "#07070b"
+      }
     },
     {
       "type": "title",
       "title": "LINEUP ESTELAR",
       "level": "h2",
-      "align": "center"
+      "align": "center",
+      "style": {
+        "padding": "small"
+      }
     },
     {
       "type": "columns3",
       "items": [
         {
           "title": "Electronic Stage",
-          "text": "Los mejores DJs de la escena underground mundial en un escenario 360.",
+          "text": "Los mejores **DJs** de la escena underground mundial en un escenario 360.",
           "icon": "https://img.icons8.com/ios-filled/100/ffffff/dj.png"
         },
         {
@@ -42,7 +57,7 @@
         },
         {
           "title": "Gastronomía",
-          "text": "Una selección curada de la mejor cocina de autor de la región.",
+          "text": "Una selección curada de la mejor [cocina de autor](https://lippu.app) de la región.",
           "icon": "https://img.icons8.com/ios-filled/100/ffffff/restaurant.png"
         }
       ]
@@ -50,8 +65,12 @@
     {
       "type": "checkout",
       "title": "ASEGURA TU LUGAR",
-      "text": "La fase 2 está por terminar. No te quedes fuera de esta celebración única.",
-      "buttonText": "ADQUIRIR ACCESOS"
+      "text": "La fase 2 está por terminar. **No te quedes fuera** de esta celebración única.",
+      "buttonText": "ADQUIRIR ACCESOS",
+      "style": {
+        "bg": "#101015",
+        "accent": "#FF4433"
+      }
     },
     {
       "type": "columns2",
@@ -62,19 +81,17 @@
       },
       "right": {
         "type": "text",
-        "content": "### TRANSPORTE OFICIAL\n\nContamos con rutas oficiales saliendo desde distintos puntos de la ciudad para tu comodidad y seguridad.\n\nEl viaje es parte de la experiencia. Disfruta del paisaje agavero mientras te preparas para lo inolvidable."
+        "content": "### TRANSPORTE OFICIAL\n\nContamos con rutas oficiales saliendo desde distintos puntos de la ciudad para tu comodidad y seguridad.\n\n* Punto A: Centro\n* Punto B: Arcos\n\nEl viaje es parte de la experiencia. Disfruta del paisaje agavero mientras te preparas para lo inolvidable."
       }
     },
     {
       "type": "map",
       "title": "UBICACIÓN",
-      "address": "Rancho el Descanso",
-      "mapUrl": "https://maps.app.goo.gl/v7vNk7DRbG2DeNgg8"
-    },
-    {
-      "type": "media1",
-      "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1600",
-      "overlayText": "NOS VEMOS EN EL CAMPO"
+      "address": "Rancho el Descanso, Jalisco",
+      "mapUrl": "https://maps.app.goo.gl/v7vNk7DRbG2DeNgg8",
+      "style": {
+        "bg": "#07070b"
+      }
     }
   ]
 }

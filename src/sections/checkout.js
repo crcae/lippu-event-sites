@@ -25,9 +25,9 @@ export function renderCheckout(props, context) {
     if (props.text) {
         const p = document.createElement("p");
         p.className = "muted";
-        p.textContent = props.text;
-        p.style.maxWidth = "500px";
-        p.style.fontSize = "18px";
+        import("../render.js").then(({ markdownToHtml }) => {
+            p.innerHTML = markdownToHtml(props.text);
+        });
         container.appendChild(p);
     }
 

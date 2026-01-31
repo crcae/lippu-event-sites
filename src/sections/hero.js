@@ -84,14 +84,14 @@ export function renderHero(props) {
   }
 
   if (props.subtitle) {
-    const sub = document.createElement("p");
-    sub.textContent = props.subtitle;
-    // Enforce subtitle styling
-    sub.style.fontSize = "clamp(18px, 2vw, 24px)";
-    sub.style.maxWidth = "700px";
-    sub.style.margin = "0 auto 32px";
-    sub.style.textShadow = "0 2px 10px rgba(0,0,0,0.5)";
-    content.appendChild(sub);
+    const { markdownToHtml } = await import("../render.js");
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.innerHTML = markdownToHtml(props.subtitle);
+    p.style.fontSize = "1.2rem";
+    p.style.maxWidth = "800px";
+    p.style.margin = "0 auto 32px";
+    content.appendChild(p);
   }
 
   // Meta Row (Badge, Date, Location)

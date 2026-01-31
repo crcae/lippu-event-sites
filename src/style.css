@@ -1,45 +1,101 @@
 /* Reset & Base */
 :root {
   --bg: #050505;
-  --card: #12121A; /* Fallback */
+  --card: #12121A;
+  /* Fallback */
   --text: #ffffff;
   --muted: #B5B5C0;
-  --accent: #FF3B30; /* More vibrant red/orange like Akamba/Festivals */
+  --accent: #FF3B30;
+  /* More vibrant red/orange like Akamba/Festivals */
   --radius: 24px;
   --font-display: 'Montserrat', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-body { 
-  margin: 0; 
-  font-family: var(--font-body); 
-  background: var(--bg); 
-  color: var(--text); 
-  line-height: 1.6; 
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
-img { max-width: 100%; display: block; }
-
-#root { 
-  max-width: 1100px; /* Wider container */
-  margin: 0 auto; 
-  padding: 0 0 40px; /* No top padding, hero handles it */
-  display: flex; /* Flex column for better spacing control than grid gap */
-  flex-direction: column;
-  gap: 60px; /* Huge premium spacing */
+img {
+  max-width: 100%;
+  display: block;
 }
+
+#root {
+  max-width: 1440px;
+  /* Even wider for modern look */
+  margin: 0 auto;
+  padding: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* Removing fixed gap to allow section-containers to touch for BG colors */
+}
+
+.section-container {
+  width: 100%;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  transition: all 0.3s ease;
+}
+
+.section-container.padding-small {
+  padding: 30px 20px;
+}
+
+.section-container.padding-normal {
+  padding: 60px 40px;
+}
+
+.section-container.padding-large {
+  padding: 120px 80px;
+}
+
+.section-content {
+  width: 100%;
+  max-width: 1200px;
+  /* Inner content remains readable but wider */
+  margin: 0 auto;
+}
+
+.full-width .section-content {
+  max-width: 100%;
+}
+
 
 /* Animations */
 @keyframes kenBurns {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
 }
+
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Utilities & Components */
@@ -48,25 +104,29 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Override Card to use Glass by default if needed, or keep separate */
 .card {
-  background: #12121A; /* Solid fallback */
+  background: #12121A;
+  /* Solid fallback */
   border-radius: var(--radius);
   padding: 32px;
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.muted { color: var(--muted); }
+.muted {
+  color: var(--muted);
+}
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 16px 32px;
-  border-radius: 99px; /* Pill shape */
+  border-radius: 99px;
+  /* Pill shape */
   background: var(--accent);
   color: #fff;
   text-decoration: none;
@@ -78,84 +138,172 @@ img { max-width: 100%; display: block; }
   border: none;
   cursor: pointer;
 }
+
 .btn:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 8px 20px rgba(var(--accent-rgb, 255, 59, 48), 0.4);
 }
+
 .btn.secondary {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.row { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
-.badge { 
-  display: inline-block; 
-  padding: 8px 16px; 
-  border-radius: 99px; 
-  background: rgba(255, 255, 255, 0.1); 
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
-  font-weight: 700; 
-  font-size: 11px; 
-  text-transform: uppercase; 
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.heroimg { width: 100%; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+.heroimg {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
 /* Typography Overrides */
-h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; margin: 0 0 16px; }
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
 
-h1 { 
-  font-weight: 900; 
-  font-size: clamp(40px, 8vw, 84px); 
+h1 {
+  font-weight: 900;
+  font-size: clamp(40px, 8vw, 84px);
   text-transform: uppercase;
   letter-spacing: -0.03em;
 }
-h2 { 
-  font-weight: 800; 
+
+h2 {
+  font-weight: 800;
   font-size: clamp(28px, 5vw, 48px);
   letter-spacing: -0.02em;
 }
-h3 { 
-  font-weight: 700; 
-  font-size: 22px; 
+
+h3 {
+  font-weight: 700;
+  font-size: 22px;
 }
 
-p { margin: 0 0 20px; font-size: 17px; opacity: 0.9; }
-p:last-child { margin-bottom: 0; }
+p {
+  margin: 0 0 20px;
+  font-size: 17px;
+  opacity: 0.9;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
 
 /* Grids & Layouts */
-.grid3 { 
-  display: grid; 
-  grid-template-columns: repeat(3, minmax(0, 1fr)); 
-  gap: 24px; 
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
-.tile { 
+.tile {
   /* Now using glass style via JS or here? Let's default .tile to glass */
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-radius: 24px; 
-  padding: 32px 24px; 
+  border-radius: 24px;
+  padding: 32px 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: transform 0.3s ease;
 }
+
 .tile:hover {
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.05);
 }
-.tile h3 { font-size: 18px; margin-bottom: 12px; }
-.tile p { font-size: 15px; color: var(--muted); }
 
-.carousel-container::-webkit-scrollbar { display: none; } 
+.tile h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
 
-@media (max-width: 768px) { 
-  .grid3 { grid-template-columns: 1fr; } 
-  #root { padding: 0 16px 40px; gap: 40px; }
-  .row.reverse-mobile { flex-direction: column-reverse; }
+.tile p {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+
+  #root {
+    padding: 0 16px 40px;
+    gap: 40px;
+  }
+
+  .row.reverse-mobile {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Countdown */
+.countdown-section h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+  .countdown-section>div {
+    gap: 10px !important;
+  }
+
+  .countdown-section>div>div {
+    min-width: 70px !important;
+    padding: 15px 5px !important;
+  }
+
+  .countdown-section>div>div>div:first-child {
+    font-size: 28px !important;
+  }
 }
 
 /* Netlify Identity Script */
-script[src*="netlify-identity"] { display: none; }
+script[src*="netlify-identity"] {
+  display: none;
+}
+
+/* Scrollbar and custom elements */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

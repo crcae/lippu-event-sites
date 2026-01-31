@@ -35,7 +35,9 @@ export function renderColumns3(props) {
         tile.appendChild(h3);
 
         const p = document.createElement("p");
-        p.textContent = item.text || "";
+        import("../render.js").then(({ markdownToHtml }) => {
+            p.innerHTML = markdownToHtml(item.text);
+        });
         tile.appendChild(p);
 
         grid.appendChild(tile);

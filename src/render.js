@@ -7,6 +7,7 @@ import { renderMedia1 } from "./sections/media1.js";
 import { renderVideo } from "./sections/video.js";
 import { renderCheckout } from "./sections/checkout.js";
 import { renderMap } from "./sections/map.js";
+import { renderCountdown } from "./sections/countdown.js";
 
 // Registry mapping CMS keys to render functions
 const registry = {
@@ -18,7 +19,8 @@ const registry = {
   media1: renderMedia1,
   video: renderVideo,
   checkout: renderCheckout,
-  map: renderMap
+  map: renderMap,
+  countdown: renderCountdown
 };
 
 function applyTheme(theme) {
@@ -35,6 +37,22 @@ function setSEO(seo) {
   const meta = document.querySelector('meta[name="description"]');
   if (meta && seo?.description) meta.setAttribute("content", seo.description);
 }
+
+const markdownToHtml = (text) => {
+  if (!text) return "";
+  return text
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
+    .replace(/\*(.*)\*/gim, '<i>$1</i>')
+    .replace(/^\* (.*$)/gim, '<li>$1</li>')
+    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
+    .replace(/\n/g, '<br>');
+};
+
+// Exports helper for sections
+export { markdownToHtml };
 
 // Accepts optional root element (for CMS preview)
 export function renderEvent(data, customRoot) {
@@ -54,13 +72,29 @@ export function renderEvent(data, customRoot) {
       continue;
     }
     try {
-      // CMS outputs flat fields, while manual JSON might use 'props'.
-      // If s.props exists, use it. Otherwise use s itself (filtering 'type' isn't strictly necessary but cleaner).
       const props = s.props ? s.props : s;
+      const style = props.style || {};
 
-      // Pass props and also full data context
+      // 1. Create outer container
+      const container = document.createElement("div");
+      container.className = `section-container padding-${style.padding || 'normal'}`;
+      if (style.fullWidth) container.classList.add("full-width");
+
+      // Apply style overrides
+      if (style.bg) container.style.backgroundColor = style.bg;
+      if (style.text) container.style.color = style.text;
+
+      // 2. Create inner content wrapper
+      const content = document.createElement("div");
+      content.className = "section-content";
+
+      // 3. Render section
       const node = fn(props, data);
-      if (node) root.appendChild(node);
+      if (node) {
+        content.appendChild(node);
+        container.appendChild(content);
+        root.appendChild(container);
+      }
     } catch (e) {
       console.error(`Error rendering section ${s.type}:`, e);
     }
