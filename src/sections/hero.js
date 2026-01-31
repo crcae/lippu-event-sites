@@ -1,4 +1,4 @@
-export function renderHero(props) {
+export async function renderHero(props) {
   // Container moves outside normal flow to be full width if possible, 
   // but since #root has max-width, we might need to break out or just be big inside.
   // For this design, we'll keep it inside but make it TALL and immersive.

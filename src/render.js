@@ -89,7 +89,7 @@ export function renderEvent(data, customRoot) {
       content.className = "section-content";
 
       // 3. Render section
-      const node = fn(props, data);
+      const node = await fn(props, data);
       if (node) {
         content.appendChild(node);
         container.appendChild(content);
