@@ -10,6 +10,8 @@ collections:
     label: "Eventos"
     folder: "events"
     create: true
+    extension: "json"
+    format: "json"
     slug: "{{slug}}"
     fields:
       - { label: "Slug", name: "slug", widget: "string", hint: "URL del evento (ej: mi-evento)" }
