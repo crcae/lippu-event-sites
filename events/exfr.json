@@ -14,24 +14,13 @@
   },
   "sections": [
     {
-      "type": "title",
-      "level": "h2",
-      "align": "center",
-      "title": "Inspección del Caballo Frisón en México por KFPS",
-      "style": {
-        "bg": "#ffffff",
-        "text": "#109bff",
-        "padding": "small"
-      }
-    },
-    {
       "badge": "",
       "date": "",
       "kicker": "",
       "location": "",
-      "subtitle": "",
+      "subtitle": "## Inspección del Caballo Frisón en México por KFPS",
       "title": " ",
-      "minHeight": 600,
+      "minHeight": 800,
       "type": "hero",
       "image": "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
     },
