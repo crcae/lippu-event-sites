@@ -1,97 +1,15 @@
 {
   "slug": "demo",
+  "checkoutUrl": "https://lippu.app/checkout/demo",
   "seo": {
     "title": "AKAMBA 2024 | Lippu Experience",
     "description": "Vive la experiencia mística en los campos de agave."
   },
   "theme": {
+    "primary": "#FF4433",
     "bg": "#050505",
-    "card": "#101015",
-    "text": "#FFFFFF",
-    "muted": "#9CA3AF",
-    "accent": "#FF4433"
+    "text": "#FFFFFF"
   },
-  "sections": [
-    {
-      "type": "hero",
-      "kicker": "10 DE MAYO 2026 • GUADALAJARA",
-      "title": "EXPERIENCIA ETÉREA",
-      "subtitle": "Un festival donde la **música**, el **arte** y la **naturaleza** convergen en los campos de agave.\n\n* Fase 1: Agotada\n* Fase 2: Disponible",
-      "badge": "ÚLTIMOS BOLETOS",
-      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
-      "minHeight": 700,
-      "style": {
-        "overlay": "rgba(0,0,0,0.5)"
-      }
-    },
-    {
-      "type": "countdown",
-      "title": "EL RITUAL COMIENZA EN:",
-      "targetDate": "2026-05-10T20:00:00Z",
-      "style": {
-        "padding": "large",
-        "bg": "#07070b"
-      }
-    },
-    {
-      "type": "title",
-      "title": "LINEUP ESTELAR",
-      "level": "h2",
-      "align": "center",
-      "style": {
-        "padding": "small"
-      }
-    },
-    {
-      "type": "columns3",
-      "items": [
-        {
-          "title": "Electronic Stage",
-          "text": "Los mejores **DJs** de la escena underground mundial en un escenario 360.",
-          "icon": "https://img.icons8.com/ios-filled/100/ffffff/dj.png"
-        },
-        {
-          "title": "Art District",
-          "text": "Instalaciones monumentales de artistas locales e internacionales.",
-          "icon": "https://img.icons8.com/ios-filled/100/ffffff/monument.png"
-        },
-        {
-          "title": "Gastronomía",
-          "text": "Una selección curada de la mejor [cocina de autor](https://lippu.app) de la región.",
-          "icon": "https://img.icons8.com/ios-filled/100/ffffff/restaurant.png"
-        }
-      ]
-    },
-    {
-      "type": "checkout",
-      "title": "ASEGURA TU LUGAR",
-      "text": "La fase 2 está por terminar. **No te quedes fuera** de esta celebración única.",
-      "buttonText": "ADQUIRIR ACCESOS",
-      "style": {
-        "bg": "#101015",
-        "accent": "#FF4433"
-      }
-    },
-    {
-      "type": "columns2",
-      "reverseMobile": true,
-      "left": {
-        "type": "image",
-        "image": "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=1200&q=80"
-      },
-      "right": {
-        "type": "text",
-        "content": "### TRANSPORTE OFICIAL\n\nContamos con rutas oficiales saliendo desde distintos puntos de la ciudad para tu comodidad y seguridad.\n\n* Punto A: Centro\n* Punto B: Arcos\n\nEl viaje es parte de la experiencia. Disfruta del paisaje agavero mientras te preparas para lo inolvidable."
-      }
-    },
-    {
-      "type": "map",
-      "title": "UBICACIÓN",
-      "address": "Rancho el Descanso, Jalisco",
-      "mapUrl": "https://maps.app.goo.gl/v7vNk7DRbG2DeNgg8",
-      "style": {
-        "bg": "#07070b"
-      }
-    }
-  ]
+  "html": "<section style=\"position: relative; min-height: 700px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 40px 20px;\">\n  <div style=\"max-width: 900px;\">\n    <div style=\"display: inline-block; background: rgba(255,68,51,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,68,51,0.5); padding: 8px 20px; border-radius: 50px; margin-bottom: 20px; font-size: 0.9rem; font-weight: 600; letter-spacing: 2px;\">ÚLTIMOS BOLETOS</div>\n    <div style=\"font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 20px; opacity: 0.9;\">10 DE MAYO 2026 • GUADALAJARA</div>\n    <h1 style=\"font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; margin: 0 0 30px 0; line-height: 1; text-shadow: 0 10px 40px rgba(0,0,0,0.5);\">EXPERIENCIA<br/>ETÉREA</h1>\n    <p style=\"font-size: clamp(1.1rem, 2.5vw, 1.5rem); margin: 0 0 40px 0; line-height: 1.6;\">Un festival donde la <strong>música</strong>, el <strong>arte</strong> y la <strong>naturaleza</strong> convergen en los campos de agave.</p>\n    <ul style=\"list-style: none; padding: 0; margin: 0 0 40px 0; font-size: 1.1rem;\">\n      <li style=\"margin: 10px 0;\">✓ Fase 1: Agotada</li>\n      <li style=\"margin: 10px 0;\">✓ Fase 2: Disponible</li>\n    </ul>\n  </div>\n</section>\n\n<section style=\"background: #07070b; padding: 80px 20px; text-align: center;\">\n  <h2 style=\"font-size: clamp(1.5rem, 4vw, 2.5rem); margin: 0 0 40px 0; font-weight: 700; letter-spacing: 2px;\">EL RITUAL COMIENZA EN:</h2>\n  <div id=\"countdown\" style=\"display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900;\"></div>\n</section>\n\n<section style=\"max-width: 1200px; margin: 80px auto; padding: 0 20px;\">\n  <h2 style=\"font-size: clamp(2rem, 5vw, 3rem); text-align: center; margin-bottom: 60px; font-weight: 900;\">LINEUP ESTELAR</h2>\n  <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;\">\n    <div style=\"background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; text-align: center; border: 1px solid rgba(255,255,255,0.1);\">\n      <img src=\"https://img.icons8.com/ios-filled/100/ffffff/dj.png\" alt=\"DJ\" style=\"width: 80px; height: 80px; margin-bottom: 20px; opacity: 0.9;\" />\n      <h3 style=\"margin: 0 0 15px 0; font-size: 1.5rem;\">Electronic Stage</h3>\n      <p style=\"opacity: 0.8; line-height: 1.6;\">Los mejores <strong>DJs</strong> de la escena underground mundial en un escenario 360.</p>\n    </div>\n    <div style=\"background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; text-align: center; border: 1px solid rgba(255,255,255,0.1);\">\n      <img src=\"https://img.icons8.com/ios-filled/100/ffffff/monument.png\" alt=\"Art\" style=\"width: 80px; height: 80px; margin-bottom: 20px; opacity: 0.9;\" />\n      <h3 style=\"margin: 0 0 15px 0; font-size: 1.5rem;\">Art District</h3>\n      <p style=\"opacity: 0.8; line-height: 1.6;\">Instalaciones monumentales de artistas locales e internacionales.</p>\n    </div>\n    <div style=\"background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; text-align: center; border: 1px solid rgba(255,255,255,0.1);\">\n      <img src=\"https://img.icons8.com/ios-filled/100/ffffff/restaurant.png\" alt=\"Food\" style=\"width: 80px; height: 80px; margin-bottom: 20px; opacity: 0.9;\" />\n      <h3 style=\"margin: 0 0 15px 0; font-size: 1.5rem;\">Gastronomía</h3>\n      <p style=\"opacity: 0.8; line-height: 1.6;\">Una selección curada de la mejor <a href=\"https://lippu.app\" target=\"_blank\" style=\"color: #FF4433;\">cocina de autor</a> de la región.</p>\n    </div>\n  </div>\n</section>\n\n<section style=\"background: #101015; padding: 80px 20px; text-align: center;\">\n  <h2 style=\"font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 20px 0; font-weight: 900;\">ASEGURA TU LUGAR</h2>\n  <p style=\"font-size: 1.2rem; margin: 0 0 40px 0; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9;\">La fase 2 está por terminar. <strong>No te quedes fuera</strong> de esta celebración única.</p>\n  <a href=\"https://lippu.app/checkout/demo\" style=\"display: inline-block; background: #FF4433; color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1.2rem; box-shadow: 0 10px 30px rgba(255,68,51,0.3); transition: transform 0.3s;\" onmouseover=\"this.style.transform='scale(1.05)'\" onmouseout=\"this.style.transform='scale(1)'\">ADQUIRIR ACCESOS</a>\n</section>\n\n<section style=\"max-width: 1200px; margin: 80px auto; padding: 0 20px;\">\n  <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;\">\n    <div style=\"order: 2;\">\n      <img src=\"https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=1200&q=80\" alt=\"Transporte\" style=\"width: 100%; border-radius: 20px;\" />\n    </div>\n    <div style=\"order: 1;\">\n      <h3 style=\"font-size: 2rem; margin: 0 0 20px 0; font-weight: 900;\">TRANSPORTE OFICIAL</h3>\n      <p style=\"opacity: 0.9; line-height: 1.8; margin-bottom: 20px;\">Contamos con rutas oficiales saliendo desde distintos puntos de la ciudad para tu comodidad y seguridad.</p>\n      <ul style=\"list-style: none; padding: 0; margin: 0 0 20px 0;\">\n        <li style=\"margin: 10px 0;\">• Punto A: Centro</li>\n        <li style=\"margin: 10px 0;\">• Punto B: Arcos</li>\n      </ul>\n      <p style=\"opacity: 0.8; line-height: 1.8;\">El viaje es parte de la experiencia. Disfruta del paisaje agavero mientras te preparas para lo inolvidable.</p>\n    </div>\n  </div>\n</section>\n\n<section style=\"background: #07070b; padding: 80px 20px;\">\n  <div style=\"max-width: 1200px; margin: 0 auto;\">\n    <h2 style=\"font-size: clamp(2rem, 5vw, 3rem); text-align: center; margin-bottom: 40px; font-weight: 900;\">UBICACIÓN</h2>\n    <p style=\"text-align: center; font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;\">Rancho el Descanso, Jalisco</p>\n    <div style=\"border-radius: 20px; overflow: hidden; height: 400px;\">\n      <iframe src=\"https://www.google.com/maps/embed?pb=!1m2!2m1!1sRancho+el+Descanso\" width=\"100%\" height=\"100%\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>\n    </div>\n  </div>\n</section>\n\n<script>\nfunction updateCountdown() {\n  const target = new Date('2026-05-10T20:00:00Z').getTime();\n  const now = new Date().getTime();\n  const diff = target - now;\n  \n  if (diff > 0) {\n    const days = Math.floor(diff / (1000 * 60 * 60 * 24));\n    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\n    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n    const seconds = Math.floor((diff % (1000 * 60)) / 1000);\n    \n    document.getElementById('countdown').innerHTML = `\n      <div><div style=\"color: #FF4433;\">${days}</div><div style=\"font-size: 0.5em; opacity: 0.7;\">DÍAS</div></div>\n      <div><div style=\"color: #FF4433;\">${hours}</div><div style=\"font-size: 0.5em; opacity: 0.7;\">HORAS</div></div>\n      <div><div style=\"color: #FF4433;\">${minutes}</div><div style=\"font-size: 0.5em; opacity: 0.7;\">MIN</div></div>\n      <div><div style=\"color: #FF4433;\">${seconds}</div><div style=\"font-size: 0.5em; opacity: 0.7;\">SEG</div></div>\n    `;\n  }\n}\nupdateCountdown();\nsetInterval(updateCountdown, 1000);\n</script>",
+  "customCss": ""
 }

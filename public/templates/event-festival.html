@@ -1,0 +1,410 @@
+<section class="festival-hero" style="
+  position: relative;
+  min-height: 100vh;
+  background: 
+    linear-gradient(135deg, #FF6B6B 0%, #FFE66D 25%, #4ECDC4 50%, #556270 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  overflow: hidden;
+">
+    <!-- Animated circles -->
+    <div style="
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    top: 10%;
+    left: 10%;
+    animation: float 6s ease-in-out infinite;
+  "></div>
+    <div style="
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    bottom: 20%;
+    right: 15%;
+    animation: float 8s ease-in-out infinite reverse;
+  "></div>
+
+    <div style="position: relative; z-index: 1; max-width: 1000px;">
+        <div style="
+      display: inline-block;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      padding: 10px 30px;
+      border-radius: 50px;
+      margin-bottom: 30px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      font-size: 0.9rem;
+    ">
+            🎪 FESTIVAL 2026
+        </div>
+
+        <h1 style="
+      font-size: clamp(3rem, 12vw, 8rem);
+      font-weight: 900;
+      margin: 0 0 20px 0;
+      line-height: 0.9;
+      text-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      animation: scaleIn 1s ease-out;
+    ">NOMBRE<br />FESTIVAL</h1>
+
+        <p style="
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      margin: 0 0 50px 0;
+      font-weight: 600;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    ">10-12 Mayo 2026 • Ciudad de México</p>
+
+        <div style="
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    ">
+            <a href="#lineup" style="
+        background: #000;
+        color: #fff;
+        padding: 20px 50px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        transition: transform 0.3s;
+      " onmouseover="this.style.transform='scale(1.05) rotate(-2deg)'"
+                onmouseout="this.style.transform='scale(1) rotate(0)'">
+                Ver Lineup
+            </a>
+
+            <a href="#tickets" style="
+        background: #fff;
+        color: #000;
+        padding: 20px 50px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        transition: transform 0.3s;
+      " onmouseover="this.style.transform='scale(1.05) rotate(2deg)'"
+                onmouseout="this.style.transform='scale(1) rotate(0)'">
+                🎟️ Boletos
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Lineup Section -->
+<section id="lineup" style="
+  padding: 120px 20px;
+  background: #000;
+  color: #fff;
+">
+    <div style="max-width: 1400px; margin: 0 auto;">
+        <h2 style="
+      font-size: clamp(3rem, 8vw, 5rem);
+      text-align: center;
+      margin-bottom: 80px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    ">Lineup 2026</h2>
+
+        <!-- Day 1 -->
+        <div style="margin-bottom: 80px;">
+            <h3 style="
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: #FF6B6B;
+        font-weight: 900;
+        text-transform: uppercase;
+      ">🔴 Viernes 10 Mayo</h3>
+
+            <div style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      ">
+                <div style="
+          background: linear-gradient(135deg, #FF6B6B, #C44569);
+          padding: 40px 30px;
+          border-radius: 15px;
+          text-align: center;
+          transition: transform 0.3s;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="font-size: 2rem; font-weight: 900;">HEADLINER 1</div>
+                    <div style="opacity: 0.8; margin-top: 10px;">23:00 hrs</div>
+                </div>
+
+                <div style="
+          background: rgba(255,255,255,0.1);
+          padding: 30px 20px;
+          border-radius: 15px;
+          text-align: center;
+          border: 2px solid rgba(255,255,255,0.2);
+        ">
+                    <div style="font-size: 1.5rem; font-weight: 700;">Artista 2</div>
+                    <div style="opacity: 0.6; margin-top: 10px;">21:00 hrs</div>
+                </div>
+
+                <div style="
+          background: rgba(255,255,255,0.1);
+          padding: 30px 20px;
+          border-radius: 15px;
+          text-align: center;
+          border: 2px solid rgba(255,255,255,0.2);
+        ">
+                    <div style="font-size: 1.5rem; font-weight: 700;">Artista 3</div>
+                    <div style="opacity: 0.6; margin-top: 10px;">19:00 hrs</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div style="margin-bottom: 80px;">
+            <h3 style="
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: #FFE66D;
+        font-weight: 900;
+        text-transform: uppercase;
+      ">🟡 Sábado 11 Mayo</h3>
+
+            <div style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      ">
+                <div style="
+          background: linear-gradient(135deg, #FFE66D, #FFA400);
+          padding: 40px 30px;
+          border-radius: 15px;
+          text-align: center;
+          color: #000;
+          transition: transform 0.3s;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="font-size: 2rem; font-weight: 900;">HEADLINER 2</div>
+                    <div style="opacity: 0.8; margin-top: 10px;">23:00 hrs</div>
+                </div>
+
+                <div style="
+          background: rgba(255,255,255,0.1);
+          padding: 30px 20px;
+          border-radius: 15px;
+          text-align: center;
+          border: 2px solid rgba(255,255,255,0.2);
+        ">
+                    <div style="font-size: 1.5rem; font-weight: 700;">Artista 4</div>
+                    <div style="opacity: 0.6; margin-top: 10px;">21:00 hrs</div>
+                </div>
+
+                <div style="
+          background: rgba(255,255,255,0.1);
+          padding: 30px 20px;
+          border-radius: 15px;
+          text-align: center;
+          border: 2px solid rgba(255,255,255,0.2);
+        ">
+                    <div style="font-size: 1.5rem; font-weight: 700;">Artista 5</div>
+                    <div style="opacity: 0.6; margin-top: 10px;">19:00 hrs</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div>
+            <h3 style="
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: #4ECDC4;
+        font-weight: 900;
+        text-transform: uppercase;
+      ">🔵 Domingo 12 Mayo</h3>
+
+            <div style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      ">
+                <div style="
+          background: linear-gradient(135deg, #4ECDC4, #44A08D);
+          padding: 40px 30px;
+          border-radius: 15px;
+          text-align: center;
+          transition: transform 0.3s;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="font-size: 2rem; font-weight: 900;">HEADLINER 3</div>
+                    <div style="opacity: 0.8; margin-top: 10px;">22:00 hrs</div>
+                </div>
+
+                <div style="
+          background: rgba(255,255,255,0.1);
+          padding: 30px 20px;
+          border-radius: 15px;
+          text-align: center;
+          border: 2px solid rgba(255,255,255,0.2);
+        ">
+                    <div style="font-size: 1.5rem; font-weight: 700;">Artista 6</div>
+                    <div style="opacity: 0.6; margin-top: 10px;">20:00 hrs</div>
+                </div>
+
+                <div style="
+          background: rgba(255,255,255,0.1);
+          padding: 30px 20px;
+          border-radius: 15px;
+          text-align: center;
+          border: 2px solid rgba(255,255,255,0.2);
+        ">
+                    <div style="font-size: 1.5rem; font-weight: 700;">Artista 7</div>
+                    <div style="opacity: 0.6; margin-top: 10px;">18:00 hrs</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tickets Section -->
+<section id="tickets" style="
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  text-align: center;
+">
+    <h2 style="
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 60px;
+    font-weight: 900;
+    text-transform: uppercase;
+  ">Boletos</h2>
+
+    <div style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  ">
+        <!-- General Admission -->
+        <div style="
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 40px 30px;
+    ">
+            <h3 style="font-size: 1.5rem; margin: 0 0 10px 0; font-weight: 700;">General</h3>
+            <div style="font-size: 3rem; font-weight: 900; margin: 20px 0;">$500</div>
+            <div style="opacity: 0.8; margin-bottom: 30px;">MXN</div>
+            <a href="#" style="
+        display: block;
+        background: #fff;
+        color: #667eea;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 900;
+        transition: transform 0.3s;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                Comprar
+            </a>
+        </div>
+
+        <!-- VIP -->
+        <div style="
+      background: linear-gradient(135deg, #FFE66D, #FFA400);
+      border-radius: 20px;
+      padding: 40px 30px;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    ">
+            <div style="
+        background: #000;
+        color: #FFE66D;
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 900;
+        margin-bottom: 10px;
+      ">POPULAR</div>
+            <h3 style="font-size: 1.5rem; margin: 0 0 10px 0; font-weight: 700;">VIP</h3>
+            <div style="font-size: 3rem; font-weight: 900; margin: 20px 0;">$1,200</div>
+            <div style="opacity: 0.8; margin-bottom: 30px;">MXN</div>
+            <a href="#" style="
+        display: block;
+        background: #000;
+        color: #FFE66D;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 900;
+        transition: transform 0.3s;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                Comprar
+            </a>
+        </div>
+
+        <!-- Platinum -->
+        <div style="
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 40px 30px;
+    ">
+            <h3 style="font-size: 1.5rem; margin: 0 0 10px 0; font-weight: 700;">Platinum</h3>
+            <div style="font-size: 3rem; font-weight: 900; margin: 20px 0;">$2,500</div>
+            <div style="opacity: 0.8; margin-bottom: 30px;">MXN</div>
+            <a href="#" style="
+        display: block;
+        background: #fff;
+        color: #667eea;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 900;
+        transition: transform 0.3s;
+      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                Comprar
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>

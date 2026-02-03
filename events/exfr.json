@@ -1,79 +1,15 @@
 {
-"slug": "exfr",
-  "checkoutUrl": "https://lippu.app/eventwa/inspecci%C3%B3n-del-caballo-fris%C3%B3n-en-m%C3%A9xico-por-la-kfps-1769533055910x522847725485555700?uniq=1769533055910x522847725485555700",
+  "slug": "exfr",
+  "checkoutUrl": "https://lippu.app/eventwa/exfr",
   "seo": {
-    "title": "Inspección del Caballo Frisón en México por KFPS",
-    "description": "Vive la pasión por el Frisón con la KFPS en México. Marzo 2026, Rancho El Descanso. Inspecciones, clínica y experiencias VIP. ¡Cupo limitado, regístrate!"
+    "title": "INSPECCIÓN KFPS DEL CABALLO FRISÓN EN MÉXICO 2026 | Finca SANRO",
+    "description": "Evento ecuestre exclusivo de inspección KFPS en Finca SANRO"
   },
   "theme": {
-    "bg": "#0d2632",
-    "card": "#12121A",
-    "text": "#FFFFFF",
-    "muted": "#B5B5C0",
-    "accent": "#109bff"
+    "primary": "#8B4513",
+    "bg": "#0a0a0a",
+    "text": "#ffffff"
   },
-  "sections": [
-    {
-      "type": "title",
-      "level": "h2",
-      "align": "center",
-      "title": "Inspección del Caballo Frisón en México por KFPS"
-    },
-    {
-      "badge": "",
-      "date": "",
-      "kicker": "",
-      "location": "",
-      "subtitle": "",
-      "title": " ",
-      "minHeight": 600,
-      "type": "hero",
-      "image": "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
-    },
-    {
-      "type": "columns3",
-      "items": [
-        {
-          "title": "EVALUACIÓN Y PREDICADOS",
-          "text": "Certifica la calidad de tus caballos presentándolos ante los jueces oficiales de la KFPS provenientes de Holanda. Las cuotas de inscripción se han fijado en $4,000 MXN para ejemplares menores de 3 años y $5,000 MXN para los mayores de 3 años. Además, para asegurar la mejor presentación en pista, ofrecemos el servicio de corredores profesionales de los Países Bajos por $2,500 MXN. Recuerda que es indispensable tener tu cuenta KFPS activa y el certificado original del caballo."
-        },
-        {
-          "title": "EXPERIENCIA VIP",
-          "text": "Vive la Inspección KFPS 2026 con la máxima comodidad y una vista privilegiada a la pista reservando una de nuestras Mesas VIP. Este espacio exclusivo está diseñado para quienes buscan una experiencia superior. El costo por mesa es de $5,000 MXN por un día (sábado o domingo), o bien, puedes adquirir el paquete de fin de semana por $9,000 MXN. La disponibilidad es muy estricta, limitada únicamente a 25 mesas por día."
-        },
-        {
-          "title": "ASISTENCIA GRATUTITA",
-          "text": "Únete a nosotros en Rancho El Descanso para ser testigo de la majestuosidad del caballo Frisón. Tu acceso te permitirá presenciar la clínica especializada del viernes 13 y disfrutar de las inspecciones oficiales durante el sábado 14 y domingo 15 de marzo. El evento está diseñado para toda la familia y contará con venta de alimentos y bebidas durante toda la jornada. Te recomendamos asegurar tu lugar cuanto antes, ya que el aforo está limitado a 1,000 asistentes por día.",
-          "icon": ""
-        }
-      ],
-      "title": "Rancho el Descanso recibe a los jueces oficiales de la KFPS desde Países Bajos. Una cita indispensable para evaluar, premiar y elevar el valor internacional de sus ejemplares."
-    },
-    {
-      "type": "carousel",
-      "height": 400,
-      "images": [
-        "/assets/uploads/whatsapp-image-2026-01-27-at-12.38.52-pm.jpeg",
-        "/assets/uploads/whatsapp-image-2026-01-26-at-10.53.23-am-1-.jpeg"
-      ]
-    },
-    {
-      "type": "checkout",
-      "title": "Asiste al Evento",
-      "buttonText": "Registrate en Lippu",
-      "text": ""
-    },
-    {
-      "type": "checkout",
-      "title": "Dueño de Ejemplar Frisón",
-      "buttonText": "Registra tu Caballo",
-      "customUrl": "https://lippu.app/eventwa/1769834914077x587091699298467800?uniq=1769834914077x587091699298467800  "
-    },
-    {
-      "type": "map",
-      "title": "Ubicación",
-      "address": "Rancho el Descanso",
-      "mapUrl": "https://maps.app.goo.gl/v7vNk7DRbG2DeNgg8"
-    }
-  ]
+  "html": "<section style=\"position: relative; min-height: 80vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?q=80&w=2071&auto=format&fit=crop') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 60px 20px;\">\n  <div style=\"max-width: 900px;\">\n    <div style=\"font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 20px; opacity: 0.9; text-transform: uppercase;\">Evento Ecuestre Exclusivo</div>\n    <h1 style=\"font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin: 0 0 30px 0; line-height: 1.1; text-shadow: 0 10px 40px rgba(0,0,0,0.5);\">Inspección del Caballo Frisón en México por KFPS</h1>\n    <p style=\"font-size: clamp(1.1rem, 2.5vw, 1.5rem); margin: 0 0 40px 0; line-height: 1.6;\">Un evento único donde la elegancia y tradición ecuestre se encuentran en Finca SANRO</p>\n    <a href=\"https://lippu.app/eventwa/exfr\" style=\"display: inline-block; background: #8B4513; color: white; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1.2rem; box-shadow: 0 10px 30px rgba(139,69,19,0.4); transition: transform 0.3s;\" onmouseover=\"this.style.transform='scale(1.05)'\" onmouseout=\"this.style.transform='scale(1)'\">Más Información</a>\n  </div>\n</section>\n\n<section style=\"max-width: 1200px; margin: 80px auto; padding: 0 20px;\">\n  <h2 style=\"font-size: clamp(2rem, 5vw, 3rem); text-align: center; margin-bottom: 60px; font-weight: 900;\">Sobre el Evento</h2>\n  <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;\">\n    <div style=\"background: rgba(139,69,19,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; text-align: center; border: 1px solid rgba(139,69,19,0.3);\">\n      <div style=\"font-size: 3rem; margin-bottom: 20px;\">🏆</div>\n      <h3 style=\"margin: 0 0 15px 0; font-size: 1.5rem;\">Evaluación Profesional</h3>\n      <p style=\"opacity: 0.8; line-height: 1.6;\">Inspección oficial KFPS realizada por expertos internacionales</p>\n    </div>\n    <div style=\"background: rgba(139,69,19,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; text-align: center; border: 1px solid rgba(139,69,19,0.3);\">\n      <div style=\"font-size: 3rem; margin-bottom: 20px;\">🎪</div>\n      <h3 style=\"margin: 0 0 15px 0; font-size: 1.5rem;\">Experiencia VIP</h3>\n      <p style=\"opacity: 0.8; line-height: 1.6;\">Acceso exclusivo a áreas VIP y actividades especiales</p>\n    </div>\n    <div style=\"background: rgba(139,69,19,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; text-align: center; border: 1px solid rgba(139,69,19,0.3);\">\n      <div style=\"font-size: 3rem; margin-bottom: 20px;\">🎫</div>\n      <h3 style=\"margin: 0 0 15px 0; font-size: 1.5rem;\">Entrada Libre</h3>\n      <p style=\"opacity: 0.8; line-height: 1.6;\">Asistencia gratuita para todos los amantes de los caballos</p>\n    </div>\n  </div>\n</section>\n\n<section style=\"background: linear-gradient(135deg, #8B4513 0%, #654321 100%); padding: 80px 20px; text-align: center; color: white;\">\n  <h2 style=\"font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 30px 0; font-weight: 900;\">Finca SANRO</h2>\n  <p style=\"font-size: 1.2rem; margin: 0 0 40px 0; max-width: 700px; margin-left: auto; margin-right: auto; opacity: 0.95;\">Un espacio dedicado a la crianza y exhibición de caballos frisones de la más alta calidad</p>\n  <a href=\"https://lippu.app/eventwa/exfr\" style=\"display: inline-block; background: white; color: #8B4513; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;\" onmouseover=\"this.style.transform='scale(1.05)'\" onmouseout=\"this.style.transform='scale(1)'\">Contactar</a>\n</section>",
+  "customCss": ""
 }
