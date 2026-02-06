@@ -1,23 +1,20 @@
 <!doctype html>
 <html lang="es">
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="Evento en Lippu" />
-<title>Lippu · Evento</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Evento en Lippu" />
+  <title>Lippu · Evento</title>
 
-<!-- Google Fonts: Montserrat (Black/Bold) & Inter -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap"
-  rel="stylesheet">
+  <!-- Google Fonts: Montserrat & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="/src/style.css">
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head>
-</style>
-
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <link rel="stylesheet" href="/src/style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
@@ -40,21 +37,24 @@
     import { renderEvent } from "./src/render.js";
 
     (async () => {
+      const root = document.getElementById("root");
+      let slug = "demo";
+
       try {
-        const slug = getSlug();
+        slug = getSlug();
         const data = await loadEvent(slug);
         await renderEvent(data);
       } catch (e) {
         console.error("Error loading event:", e);
-        document.getElementById("root").innerHTML = `
-          <div class="card">
-            <div class="muted">Lippu</div>
-            <h1>Evento no encontrado</h1>
-            <p class="muted">No hay configuración para <b>${slug}</b>.</p>
-            <div class="divider"></div>
-            <p class="muted" style="word-break:break-word;">${String(e.message || e)}</p>
-            <div class="row" style="margin-top:12px;">
-              <a class="btn secondary" href="https://lippu.app" rel="noopener">Ir a Lippu</a>
+        root.innerHTML = `
+          <div class="card" style="max-width: 500px; margin: 100px auto; padding: 40px; text-align: center; background: rgba(255,255,255,0.05); border-radius: 20px;">
+            <div style="opacity: 0.5; margin-bottom: 10px;">Lippu</div>
+            <h1 style="margin-bottom: 20px;">Evento no encontrado</h1>
+            <p style="opacity: 0.7;">No se pudo cargar la configuración para: <b>${slug}</b></p>
+            <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;"></div>
+            <p style="opacity: 0.5; font-size: 0.8rem; word-break: break-all;">${String(e.message || e)}</p>
+            <div style="margin-top: 30px;">
+              <a href="https://lippu.app" style="color: #109bff; text-decoration: none; font-weight: bold;">Ir a Lippu.app</a>
             </div>
           </div>
         `;
