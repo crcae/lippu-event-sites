@@ -48,11 +48,21 @@
         // Safe check for slug
         const slug = this.props.entry.getIn(['data', 'slug']) || 'demo';
         // Construct live url - adjust domain as needed
-        const liveUrl = `https://${window.location.hostname === 'localhost' ? 'localhost:3000' : window.location.hostname.replace('admin', '')}/?event=${slug}`;
+        // Real production domain
+        const PARENT_DOMAIN = 'lippu.app';
 
-        // Or if using subdomains in prod: https://slug.lippu.app
-        const isProd = window.location.hostname !== 'localhost';
-        const prettyUrl = isProd ? `https://${slug}.lippu.app` : liveUrl;
+        // Construct live urls
+        const isLocal = window.location.hostname === 'localhost';
+
+        let liveUrl = `http://localhost:3001/?event=${slug}`; // Local dev uses 3001
+        let prettyUrl = liveUrl;
+
+        if (!isLocal) {
+          // If we are on netlify or lippu.app, we can use the subdomain logic
+          // Note: Netlify usually hosts the admin on the main domain or a subdomain
+          // We assume events are at [slug].lippu.app
+          prettyUrl = `https://${slug}.${PARENT_DOMAIN}`;
+        }
 
         return h('div', {},
           // Top Bar for Actions
