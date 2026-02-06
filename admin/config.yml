@@ -40,8 +40,8 @@ collections:
       # HTML Content
       - label: "Contenido HTML"
         name: "html"
-        widget: "text"
-        hint: "Escribe HTML directamente o usa las plantillas de ejemplo. Para subir imágenes, usa el botón 'Media' arriba."
+        widget: "gemini-ai"
+        hint: "Usa el asistente de IA para generar el diseño o edita el texto directamente."
         default: "<section style=\"background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 100px 20px; text-align: center; color: white; min-height: 80vh; display: flex; flex-direction: column; justify-content: center;\">\n  <h1 style=\"font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin: 0 0 20px 0;\">NOMBRE DEL EVENTO</h1>\n  <p style=\"font-size: clamp(1.2rem, 3vw, 1.8rem); margin: 0 0 40px 0;\">📅 Fecha • 📍 Lugar</p>\n  <a href=\"#tickets\" style=\"background: white; color: #667eea; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem;\">🎟️ Comprar Boletos</a>\n</section>"
       
       

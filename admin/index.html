@@ -19,12 +19,125 @@
   <!-- Load Renderer Modules -->
   <script type="module">
     import { renderEvent } from "../src/render.js";
+    import { GeminiAgent } from "../src/gemini.js";
 
     // Register Styles
     CMS.registerPreviewStyle("../src/style.css");
     // Also fonts need to be registered or just loaded via main frame (which works for google fonts usually if not blocked)
     // Actually, registerPreviewStyle behaves by adding links to iframe. 
     CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap");
+
+    /**
+     * GeminiAssistant: A custom UI component to interact with Gemini AI
+     */
+    const GeminiAssistant = createClass({
+      getInitialState() {
+        return {
+          prompt: '',
+          loading: false,
+          apiKey: localStorage.getItem('GEMINI_API_KEY') || ''
+        };
+      },
+      handlePromptChange(e) {
+        this.setState({ prompt: e.target.value });
+      },
+      handleKeyChange(e) {
+        const key = e.target.value;
+        this.setState({ apiKey: key });
+        localStorage.setItem('GEMINI_API_KEY', key);
+      },
+      async handleGenerate() {
+        if (!this.state.apiKey) {
+          alert("Por favor ingresa tu API Key de Gemini");
+          return;
+        }
+        if (!this.state.prompt) return;
+
+        this.setState({ loading: true });
+        try {
+          const agent = new GeminiAgent(this.state.apiKey);
+          const currentHTML = this.props.value || '';
+          const newHTML = await agent.generateHTML(this.state.prompt, { currentHTML });
+
+          // Update the CMS field value
+          this.props.onChange(newHTML);
+          this.setState({ prompt: '' });
+        } catch (e) {
+          alert("Error: " + e.message);
+        } finally {
+          this.setState({ loading: false });
+        }
+      },
+      render() {
+        return h('div', {
+          style: {
+            background: '#222',
+            padding: '24px',
+            borderRadius: '12px',
+            color: '#fff',
+            fontFamily: 'system-ui',
+            marginBottom: '20px',
+            border: '1px solid #444'
+          }
+        },
+          h('h3', { style: { margin: '0 0 16px 0', color: '#109bff' } }, '✨ Asistente de IA (Gemini)'),
+
+          h('div', { style: { marginBottom: '16px' } },
+            h('label', { style: { display: 'block', marginBottom: '8px', fontSize: '12px', opacity: 0.7 } }, 'API Key de Gemini'),
+            h('input', {
+              type: 'password',
+              value: this.state.apiKey,
+              onChange: this.handleKeyChange,
+              placeholder: 'Paste your API key here',
+              style: {
+                width: '100%',
+                padding: '10px',
+                background: '#111',
+                border: '1px solid #333',
+                borderRadius: '6px',
+                color: '#fff'
+              }
+            })
+          ),
+
+          h('div', { style: { display: 'flex', gap: '10px' } },
+            h('input', {
+              value: this.state.prompt,
+              onChange: this.handlePromptChange,
+              placeholder: '¿Qué quieres crear o cambiar? (ej: "Añade una sección de mapa")',
+              style: {
+                flex: 1,
+                padding: '12px',
+                background: '#111',
+                border: '1px solid #333',
+                borderRadius: '8px',
+                color: '#fff'
+              }
+            }),
+            h('button', {
+              onClick: this.handleGenerate,
+              disabled: this.state.loading,
+              style: {
+                background: '#109bff',
+                color: '#fff',
+                border: 'none',
+                padding: '0 24px',
+                borderRadius: '8px',
+                fontWeight: 'bold',
+                cursor: this.state.loading ? 'wait' : 'pointer',
+                opacity: this.state.loading ? 0.7 : 1
+              }
+            }, this.state.loading ? 'Generando...' : 'Generar')
+          ),
+          h('p', { style: { marginTop: '12px', fontSize: '11px', opacity: 0.5 } },
+            'La IA generará solo código HTML/CSS limpio compatible con el sistema.'
+          )
+        );
+      }
+    });
+
+    // Register the AI field as a custom widget
+    CMS.registerWidget("gemini-ai", GeminiAssistant);
 
     // Create the Preview Component
     const EventPreview = createClass({
