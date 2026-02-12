@@ -262,7 +262,28 @@
     CMS.registerPreviewTemplate("events", EventPreview);
 
     // Initialize CMS manually after widgets are registered
-    CMS.init();
+    try {
+      CMS.init();
+      window.CMS_INITIALIZED = true;
+    } catch (e) {
+      console.error("CMS Manual Init Error:", e);
+      // Fallback
+      window.CMS_MANUAL_INIT = false;
+      CMS.init();
+    }
+  </script>
+
+  <!-- Fallback script if module fails to load -->
+  <script>
+    setTimeout(() => {
+      if (!window.CMS_INITIALIZED) {
+        console.warn("Module script timeout - Forcing CMS init");
+        window.CMS_MANUAL_INIT = false;
+        if (typeof CMS !== 'undefined') {
+          CMS.init();
+        }
+      }
+    }, 2000); // Wait 2s for module to load
   </script>
 </body>
 
