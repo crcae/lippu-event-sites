@@ -7,6 +7,15 @@
   <title>Lippu Events Manager</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+  <!-- Import Map for module resolution -->
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+
   <!-- Preview Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap"
     rel="stylesheet">
@@ -129,8 +138,28 @@
               }
             }, this.state.loading ? 'Generando...' : 'Generar')
           ),
-          h('p', { style: { marginTop: '12px', fontSize: '11px', opacity: 0.5 } },
-            'La IA generará solo código HTML/CSS limpio compatible con el sistema.'
+          'La IA generará solo código HTML/CSS limpio compatible con el sistema.'
+        ),
+
+          h('div', { style: { marginTop: '20px', borderTop: '1px solid #444', paddingTop: '20px' } },
+            h('label', { style: { display: 'block', marginBottom: '8px', fontSize: '12px', opacity: 0.7 } }, 'Edición Manual HTML'),
+            h('textarea', {
+              value: this.props.value || '',
+              onChange: (e) => this.props.onChange(e.target.value),
+              style: {
+                width: '100%',
+                minHeight: '300px',
+                padding: '12px',
+                background: '#1a1a1a',
+                border: '1px solid #333',
+                borderRadius: '8px',
+                color: '#ddd',
+                fontFamily: 'monospace',
+                fontSize: '13px',
+                lineHeight: '1.5',
+                resize: 'vertical'
+              }
+            })
           )
         );
       }

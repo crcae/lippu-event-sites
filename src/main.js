@@ -16,26 +16,31 @@ export function getSlug() {
   // 2. Detección por Subdominio
   const parts = host.split(".");
 
-  // Caso 1: *.lippu.app
-  if (host.endsWith(".lippu.app")) {
-    // Quitamos el sufijo .lippu.app
-    const subdomains = host.replace(".lippu.app", "").split(".");
-    // El slug es la parte inmediatamente anterior (ej: exfr.lippu.app -> exfr)
-    // Si hay www (ej: www.exfr.lippu.app), tomamos la parte correcta.
-    const slug = subdomains[subdomains.length - 1];
-    if (slug !== "www") return slug;
+  // Caso: LOCALHOST
+  if (host === "localhost" || host === "127.0.0.1") {
+    return qp.get("e") || qp.get("event") || "landing-general";
   }
 
-  // Caso 2: *.netlify.app (Para pruebas en Netlify)
-  // Pero evitamos que el dominio principal del proyecto (lippu-event-sites) se tome como slug
-  if (host.endsWith(".netlify.app") && !host.includes("lippu-event-sites")) {
-    const subdomains = host.replace(".netlify.app", "").split(".");
+  // Caso: lippu.app (y sus subdominios) o dominios de Vercel/Netlify
+  const isLippu = host.endsWith(".lippu.app");
+  const isVercel = host.endsWith(".vercel.app");
+  const isNetlify = host.endsWith(".netlify.app");
+
+  if (isLippu || isVercel || isNetlify) {
+    const suffix = isLippu ? ".lippu.app" : (isVercel ? ".vercel.app" : ".netlify.app");
+    const subdomains = host.replace(suffix, "").split(".");
     const slug = subdomains[subdomains.length - 1];
-    if (slug !== "www") return slug;
+
+    // Si no hay subdominio (ej: lippu.app) o es www, usamos la landing general
+    if (!slug || slug === "www" || slug === "lippu-event-sites") {
+      return "landing-general";
+    }
+
+    return slug;
   }
 
-  // Fallback para localhost o dominios no reconocidos
-  return "demo";
+  // Fallback final
+  return "landing-general";
 }
 
 /**

@@ -38,7 +38,17 @@ function setSEO(seo) {
   }
 }
 
-// Main render function - simplified for HTML injection
+// Simple markdown helper
+export function markdownToHtml(str) {
+  if (!str) return "";
+  return str
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>')
+    .replace(/\n/g, '<br/>');
+}
+
+// Main render function
 export async function renderEvent(data, customRoot) {
   applyTheme(data.theme);
   setSEO(data.seo);
@@ -49,11 +59,33 @@ export async function renderEvent(data, customRoot) {
   // Clear previous content
   root.innerHTML = "";
 
-  // Inject HTML directly
-  if (data.html) {
+  // 1. Section-based rendering (Preferred)
+  if (data.sections && Array.isArray(data.sections)) {
+    // Dynamic import to avoid circular dep issues in some bundlers, 
+    // but better to import at top if possible. Here we use dynamic for lazy loading logic if needed.
+    // For now, let's assume we can import normally or we use the registry we just built.
+    const { sectionsRegistry } = await import("./sections/index.js");
+
+    for (const section of data.sections) {
+      const renderer = sectionsRegistry[section.type];
+      if (renderer) {
+        try {
+          const el = await renderer(section);
+          if (el) root.appendChild(el);
+        } catch (err) {
+          console.error(`Error rendering section ${section.type}:`, err);
+        }
+      } else {
+        console.warn(`Unknown section type: ${section.type}`);
+      }
+    }
+  }
+  // 2. Fallback to HTML injection
+  else if (data.html) {
     root.innerHTML = data.html;
-  } else {
-    // Fallback if no HTML provided
+  }
+  // 3. Fallback if no content
+  else {
     root.innerHTML = `
       <div style="
         max-width: 800px;
@@ -64,7 +96,7 @@ export async function renderEvent(data, customRoot) {
         border-radius: 20px;
       ">
         <h1 style="margin: 0 0 20px 0;">Sin Contenido</h1>
-        <p style="opacity: 0.7;">Este evento no tiene contenido HTML configurado.</p>
+        <p style="opacity: 0.7;">Este evento no tiene contenido configurado.</p>
         <p style="opacity: 0.5; margin-top: 20px;">Ve al admin para agregar contenido.</p>
       </div>
     `;

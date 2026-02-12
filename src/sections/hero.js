@@ -94,11 +94,39 @@ export async function renderHero(props) {
     content.appendChild(p);
   }
 
+  // Actions (Buttons)
+  if (props.actions && Array.isArray(props.actions)) {
+    const actionsRow = document.createElement("div");
+    actionsRow.className = "row";
+    actionsRow.style.justifyContent = "center";
+    actionsRow.style.gap = "20px";
+    actionsRow.style.marginTop = "32px";
+
+    props.actions.forEach(action => {
+      const btn = document.createElement("a");
+      btn.href = action.url || "#";
+      btn.textContent = action.label || "Action";
+      btn.className = action.primary ? "btn" : "btn secondary";
+
+      // Secondary styling override if needed (since valid css might be missing)
+      if (!action.primary) {
+        btn.style.background = "rgba(255,255,255,0.1)";
+        btn.style.backdropFilter = "blur(10px)";
+        btn.style.border = "1px solid rgba(255,255,255,0.2)";
+      }
+
+      actionsRow.appendChild(btn);
+    });
+
+    content.appendChild(actionsRow);
+  }
+
   // Meta Row (Badge, Date, Location)
   if (props.badge || props.date || props.location) {
     const metaRow = document.createElement("div");
     metaRow.className = "row";
     metaRow.style.justifyContent = "center";
+    metaRow.style.marginTop = "40px";
 
     if (props.badge) {
       const b = document.createElement("span");
