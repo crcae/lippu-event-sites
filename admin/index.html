@@ -23,6 +23,7 @@
 
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <!-- Load Renderer Modules -->
@@ -259,6 +260,9 @@
 
     // Register to 'events' collection
     CMS.registerPreviewTemplate("events", EventPreview);
+
+    // Initialize CMS manually after widgets are registered
+    CMS.init();
   </script>
 </body>
 
